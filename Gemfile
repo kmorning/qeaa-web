@@ -46,6 +46,8 @@ gem 'spring',        group: :development
 
 # foundation-rails - front-end framework 
 gem 'foundation-rails'
+# high_voltage - for static pages like "about"
+gem 'high_voltage'
 
 ###############################################################
 #
