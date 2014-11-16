@@ -26,6 +26,12 @@ gem 'jbuilder', '~> 2.0'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+# Deployment
+gem 'capistrano', '~> 3.1.0'
+gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-rails', '~> 1.1.1'
+gem 'capistrano-rvm', github: "capistrano/rvm"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -68,13 +74,13 @@ end
 
 ################################################################
 #
-# production - deployment to Heroku
+# production - deployment to Amazon EC2 intance
 #
 ################################################################
 
 group :production do
   # Thin web server - easy to use and requires no configuration
-  gem 'thin'
+  #gem 'thin'
   # logging and static assets(CSS & JavaScript)
-  gem 'rails_12factor'
+  #gem 'rails_12factor'
 end
