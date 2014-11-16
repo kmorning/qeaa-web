@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: qeaa-web_production
-  username: qeaa-web
+  database: qeaa_web_production
+  username: qeaa_web
   password: <%= ENV['QEAAWEB_DATABASE_PASSWORD'] %>
