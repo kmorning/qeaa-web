@@ -77,6 +77,12 @@ section {
   font-size: 1.5em;
   font-weight: bold;
 }
+
+.head-phone {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: RoyalBlue;
+}
   
 .home-orbit-container {
   @include twelve-columns;
