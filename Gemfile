@@ -54,6 +54,8 @@ gem 'capistrano-rvm', github: "capistrano/rvm"
 gem 'foundation-rails'
 # high_voltage - for static pages like "about"
 gem 'high_voltage'
+# Fix foundation scripts turbolinks break.
+gem 'jquery-turbolinks'
 
 ###############################################################
 #
