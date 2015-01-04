@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
-
+# Specify ruby version
+ruby '2.2.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.6'
+gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -51,7 +52,8 @@ gem 'capistrano-rvm', github: "capistrano/rvm"
 ###############################################################
 
 # foundation-rails - front-end framework 
-gem 'foundation-rails'
+# Invalid CSS !global with version 5.5.0.0
+gem 'foundation-rails', '5.4.5.0'
 # high_voltage - for static pages like "about"
 gem 'high_voltage'
 # Fix foundation scripts turbolinks break.
