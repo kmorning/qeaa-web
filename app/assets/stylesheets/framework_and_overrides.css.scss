@@ -30,60 +30,20 @@
   @extend .columns;
   @extend .text-center;
   }
-/*
-// create your own classes
-// to make views framework-neutral
-.column {
-  @include six-columns-centered;
-  }
-.form {
-  @include grid-column(6);
-  }
-.form-centered {
-  @include six-columns-centered;
-  }
-.submit {
-  @extend .button;
-  @extend .radius;
-  }
-*/
-// apply styles to HTML elements
-// to make views framework-neutral
-header {
-  background-color: #FFFFFF;
+
+// Main background and font
+.row {
+  background-color: #e1efcb;
   font-family: Arial, Helvetica, sans-serif;
+  color: #00537c
 }
 
-main {
-  background-color: #FFFFFF;
-  font-family: Arial, Helvetica, sans-serif;
-}
-/*
-section {
-  @extend .row;
-  margin-top: 20px;
-  }
-*/
-
-//  Home Page Styles  //
-.welcome {
-  font-size: 2em;
-  font-style: oblique;
-  font-weight: bold;
-  color: RoyalBlue;
+// Margin background
+body {
+//background-color: #e8f4d6;
+  background-color: #e1efcb;
 }
 
-.aaqe {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-.head-phone {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: RoyalBlue;
-}
-  
 .home-orbit-container {
   @include twelve-columns;
   @include orbit-bullets-bottom-right;
