@@ -60,6 +60,8 @@ gem 'high_voltage'
 gem 'jquery-turbolinks'
 # Use devise for authentication
 gem 'devise'
+# Use pundit for authorization
+gem 'pundit'
 
 ###############################################################
 #
