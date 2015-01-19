@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address_building: MyString
+  address_street: MyString
+  address_city: MyString
+  weekday: 1
+  time: 2015-01-18 20:29:13
+  closed: false
+  accessible: false
+
+two:
+  name: MyString
+  address_building: MyString
+  address_street: MyString
+  address_city: MyString
+  weekday: 1
+  time: 2015-01-18 20:29:13
+  closed: false
+  accessible: false
