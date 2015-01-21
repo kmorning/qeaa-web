@@ -1,0 +1,17 @@
+<% content_for :title do %>Group<% end %>
+<h3>Group</h3>
+<div class="form">
+  <%= simple_form_for @group do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :name %>
+    <%= f.input :address_building, label: 'Building' %>
+    <%= f.input :address_street, label: 'Street' %>
+    <%= f.input :address_city, label: 'City' %>
+    <%# f.input :weekday, label: 'Day', collection: Group.weekday.map {|k, v| [k, k]} %>
+    <%= f.input :weekday, label: 'Day', collection: Group.weekdays %>
+    <%= f.input :time %>
+    <%= f.input :closed %>
+    <%= f.input :accessible, label: 'Wheelchair access' %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

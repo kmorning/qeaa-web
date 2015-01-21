@@ -58,6 +58,10 @@ gem 'foundation-rails', '5.4.5.0'
 gem 'high_voltage'
 # Fix foundation scripts turbolinks break.
 gem 'jquery-turbolinks'
+# Role management
+gem 'rolify'
+# Use simple form with foundation
+gem 'simple_form'
 
 ###############################################################
 #
