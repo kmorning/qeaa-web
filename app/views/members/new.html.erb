@@ -1,0 +1,24 @@
+<% content_for :title do %>Member<% end %>
+<div class="row">
+  <div class="large-12 columns">
+    <h3>Member</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="large-8 columns">
+    <div class="panel">
+     <div class="form">
+       <%= simple_form_for @member do |f| %>
+         <%= f.error_notification %>
+         <%= f.input :first_name %>
+         <%= f.input :last_initial %>
+         <%= f.association :group %>
+         <%= f.input :phone %>
+         <%= f.input :email %>
+         <%= f.input :birthday %>
+         <%= f.button :submit %>
+       <% end %>
+     </div>
+    </div>
+  </div>
+</div>
