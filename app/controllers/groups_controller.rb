@@ -8,8 +8,11 @@ class GroupsController < ApplicationController
     #render plain: params[:group].inspect
     @group = Group.new(secure_params)
 
-    @group.save
-    redirect_to @group
+    if @group.save
+      redirect_to @group
+    else
+      render 'new'
+    end
   end
 
   def show
