@@ -1,8 +1,4 @@
 class Member < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
   rolify
   belongs_to :group, inverse_of: :members
 
