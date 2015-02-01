@@ -1,7 +1,15 @@
 <%# add navigation links to this file %>
-<li><%= link_to "AA at a Glance", root_path %></li>
-<li><%= link_to "Meetings", root_path %></li>
-<li><%= link_to "Distict 34 Events", root_path %></li>
-<li><%= link_to "Something Else?", root_path %></li>
-<li><%= link_to "Contact", root_path %></li>
+<li class="name has-dropdown">
+  <a>AA at a Glance</a>
+  <%= render 'layouts/at_a_glance_dropdown' %>
+</li>
+<li class="name has-dropdown">
+  <a>Meeting List</a>
+  <%= render 'layouts/meeting_list_dropdown' %>
+</li>
+<li class="name has-dropdown">
+  <a>Distict 34 Events</a>
+  <%= render 'layouts/events_dropdown' %>
+</li>
+<li class="name"><%= link_to "Contact", root_path %></li>
 

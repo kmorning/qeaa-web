@@ -1,5 +1,8 @@
 // import the CSS framework
+@import 'settings';
 @import "foundation";
+
+$column-pad: rem-calc(30);
 
 // override for the 'Home' navigation link
 .top-bar .name {
@@ -31,17 +34,31 @@
   @extend .text-center;
   }
 
+@mixin columns-padded {
+  @extend .columns;
+  padding-left: $column-pad;
+  padding-right: $column-pad;
+}
+
+.content-columns {
+  @include columns-padded;
+}
+
 // Main background and font
 .row {
-  background-color: #e1efcb;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #00537c
+  //background-color: #e1efcb;
+  //font-family: Arial, Helvetica, sans-serif;
+  //color: #00537c
+  background-color: #FFF;
 }
 
 // Margin background
 body {
+  font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+  background-color:#00537c;
+  color: #000;
 //background-color: #e8f4d6;
-  background-color: #e1efcb;
+//  background-color: #e1efcb;
 }
 
 .home-orbit-container {

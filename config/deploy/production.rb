@@ -17,11 +17,18 @@
 
 set :stage, :production
 
-server '54.173.62.80', 
-  user: 'deploy', 
+#server '54.173.62.80', 
+#  user: 'deploy', 
+#  roles: %w{web app},
+#  ssh_options: {
+#    keys: %w(/opt/media/src/rails/aws/kmorning-key-pair.pem)
+#  }
+
+server '67.231.28.167',
+  user: 'deploy',
   roles: %w{web app},
   ssh_options: {
-    keys: %w(/opt/media/src/rails/aws/kmorning-key-pair.pem)
+    keys: %w(/opt/media/src/rails/keys/serenity.pem)
   }
 
 # you can set custom ssh options
