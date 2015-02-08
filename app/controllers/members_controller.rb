@@ -4,7 +4,7 @@ class MembersController < ApplicationController
   end
 
   def create
-  @member = Member.new(secure_params)
+    @member = Member.new(secure_params)
 
     if @member.save
       redirect_to @member

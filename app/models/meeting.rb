@@ -1,7 +1,7 @@
 class Meeting < ActiveRecord::Base
   belongs_to :group, inverse_of: :meetings
   
-  enum type: [:open, :closed]
+  enum category: [:open, :closed]
 
   enum format: [:discussion,
                 :speaker,
@@ -29,7 +29,7 @@ class Meeting < ActiveRecord::Base
   validates_presence_of :street
   validates_presence_of :city
   validates_presence_of :weekday
-  validates_presence_of :type
+  validates_presence_of :category
   validates_presence_of :format
 
 end
