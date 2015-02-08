@@ -27,10 +27,12 @@ class Meeting < ActiveRecord::Base
 
   enum frequency: [:weekly, :monthly, :single]
 
-  # TODO: Validate that no other meeting for a given group is
-  # within the same day and time.
-  # This validation won't work because time has date as well.
-  #validates :group_id, uniqueness: {scope: :weekday, :time}
+  #TODO: Need validation to make sure a given group doesn't have
+  # multiple meetings on the same day and time.  The validation
+  # below breaks TimeOfDay storage to database.  Also, when start and
+  # and end dates are implemented, meetings can have same day and time
+  # as long as their start and end dates don't overlap.
+  #validates :group_id, uniqueness: {scope: [:weekday, :time]}
   validates_presence_of :facility
   validates_presence_of :street
   validates_presence_of :city
