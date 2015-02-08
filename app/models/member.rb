@@ -2,6 +2,8 @@ class Member < ActiveRecord::Base
   rolify
   belongs_to :group, inverse_of: :members
 
+  acts_as_birthday :birthday
+
   validates :first_name, presence: true
   validates :last_initial, presence: true, length: { maximum: 1 }
   validates_associated :group

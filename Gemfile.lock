@@ -49,6 +49,9 @@ GEM
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
+    birthday (0.3.1)
+      activerecord
+      activesupport
     builder (3.2.2)
     capistrano (3.1.0)
       i18n
@@ -176,6 +179,7 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
+  birthday
   capistrano (~> 3.1.0)
   capistrano-bundler (~> 1.1.2)
   capistrano-rails (~> 1.1.1)

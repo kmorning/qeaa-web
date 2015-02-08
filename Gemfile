@@ -64,6 +64,8 @@ gem 'rolify'
 gem 'simple_form'
 # TimeOfDay
 gem 'tod'
+# Birthdays and anniversaries
+gem 'birthday'
 
 ###############################################################
 #
