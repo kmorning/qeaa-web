@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :meetings
+
   resources :members
 
   resources :groups

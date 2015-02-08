@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address_facility: MyString
+  address_street: MyString
+  address_city: MyString
+  weekday: 1
+  time: 2015-02-07 18:16:40
+  type: 1
+  format: 1
+  accessible: false
+  notice: MyText
+
+two:
+  address_facility: MyString
+  address_street: MyString
+  address_city: MyString
+  weekday: 1
+  time: 2015-02-07 18:16:40
+  type: 1
+  format: 1
+  accessible: false
+  notice: MyText
