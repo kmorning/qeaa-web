@@ -25,9 +25,9 @@ class Meeting < ActiveRecord::Base
 
   enum frequency: [:weekly, :monthly, :single]
 
-  validates_presence_of :address_facility
-  validates_presence_of :address_street
-  validates_presence_of :address_city
+  validates_presence_of :facility
+  validates_presence_of :street
+  validates_presence_of :city
   validates_presence_of :weekday
   validates_presence_of :type
   validates_presence_of :format
