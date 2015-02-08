@@ -16,7 +16,8 @@ class MeetingsController < ApplicationController
   end
 
   def index
-    @meetings = Meeting.all
+    #@meetings = Meeting.all
+    @meetings = Meeting.order(:weekday, :time)
   end
 
   def show
