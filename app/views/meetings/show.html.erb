@@ -1,7 +1,23 @@
-
+<% content_for :title do %><%= @meeting.group.name %><% end %>
 <div class="row">
   <div class="large-12 columns">
-     <h3><%= @meeting.group.name %></h3>
+    <h3><%= @meeting.group.name %></h3>
+    <p>
+    <%= @meeting.weekday.titleize %>
+    <br>
+    <%= @meeting.time.strftime("%l:%M %p") %>
+    <br>
+    <%= @meeting.facility %>
+    <br>
+    <%= @meeting.street %>
+    <br>
+    <%= @meeting.city %>
+    <br>
+    <strong>Type: </strong><%= @meeting.category.titleize %>
+    <br>
+    <strong>Format: </strong><%= @meeting.format.titleize %>
+
+    </p>
    </div>
  </div>
 

@@ -1,0 +1,37 @@
+<% content_for :title do %>Meetings<% end %>
+<div class="row">
+  <div class="large-12 columns">
+    <h3>Meetings</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Day</th>
+        <th>Time</th>
+        <th>Facility</th>
+        <th>Street</th>
+        <th>City/Town</th>
+        <th>Type</th>
+        <th>Format</th>
+      </tr>
+
+      <% @meetings.each do |meeting| %>
+        <tr>
+          <td><%= meeting.group.name %></td>
+          <td><%= meeting.weekday.titleize %></td>
+          <td><%= meeting.time.strftime("%l:%M %p") %></td>
+          <td><%= meeting.facility %></td>
+          <td><%= meeting.street %></td>
+          <td><%= meeting.city %></td>
+          <td><%= meeting.category.titleize %></td>
+          <td><%= meeting.format.titleize %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+
