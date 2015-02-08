@@ -15,15 +15,17 @@ class GroupsController < ApplicationController
     end
   end
 
+  def index
+    @groups = Group.all
+  end
+
   def show
     @group = Group.find(params[:id])
   end
 
   private
   def secure_params
-    params.require(:group).permit(:name, :address_building, :address_street,
-                                  :address_city, :weekday, :closed,
-                                  :accessible)
+    params.require(:group).permit(:name)
   end
 
 end
