@@ -62,6 +62,8 @@ gem 'jquery-turbolinks'
 gem 'rolify'
 # Use simple form with foundation
 gem 'simple_form'
+# TimeOfDay
+gem 'tod'
 
 ###############################################################
 #

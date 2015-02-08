@@ -1,5 +1,7 @@
 class Meeting < ActiveRecord::Base
   belongs_to :group, inverse_of: :meetings
+
+  serialize :time, Tod::TimeOfDay
   
   enum category: [:open, :closed]
 
