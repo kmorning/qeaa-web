@@ -66,6 +66,8 @@ gem 'simple_form'
 gem 'tod'
 # Birthdays and anniversaries
 gem 'birthday'
+# Authentication
+gem 'devise'
 
 ###############################################################
 #
