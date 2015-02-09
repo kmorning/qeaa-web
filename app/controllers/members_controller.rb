@@ -1,6 +1,7 @@
 class MembersController < ApplicationController
   def new
     @member = Member.new
+    @member.member_emails.build
   end
 
   def create
@@ -20,7 +21,8 @@ class MembersController < ApplicationController
   private
   def secure_params
     params.require(:member).permit(:first_name, :last_initial, :group_id,
-                                  :phone, :email, :birthday)
+                                  :phone, :birthday,
+                                  member_emails_attributes: [:email])
   end
 
 end

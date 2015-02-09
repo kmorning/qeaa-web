@@ -2,7 +2,8 @@ class DeviseCreateAccounts < ActiveRecord::Migration
   def change
     create_table(:accounts) do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
+      #t.string :email,              null: false, default: ""
+      t.belongs_to :member, index: true
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
@@ -34,7 +35,7 @@ class DeviseCreateAccounts < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :accounts, :email,                unique: true
+    #add_index :accounts, :email,                unique: true
     add_index :accounts, :reset_password_token, unique: true
     # add_index :accounts, :confirmation_token,   unique: true
     # add_index :accounts, :unlock_token,         unique: true
