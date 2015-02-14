@@ -1,5 +1,5 @@
 class GroupPolicy
-  attr_reader :current_member, :group
+  attr_reader :member, :group
 
   def initialize(member, group)
     @member = member
