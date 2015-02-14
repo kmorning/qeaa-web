@@ -1,19 +1,14 @@
 class GroupsController < ApplicationController
   before_filter :authenticate_account!
-  skip_before_filter :authenticate_account! , :only => [:index, :show]
+  skip_before_filter :authenticate_account! , :only => [:index]
+  after_action :verify_authorized, :except => :index
   def new
-   # Temporay authorization without pundit
-    unless current_member.has_role? :admin
-      redirect_to :root, :alert => "Access denied."
-    end
+    authorize Group
     @group = Group.new
   end
 
   def create
-    # Temporay authorization without pundit
-    unless current_member.has_role? :admin
-      redirect_to :root, :alert => "Access denied."
-    end
+    authorize Group
     # Just to see what the parameters look like.
     #render plain: params[:group].inspect
     @group = Group.new(secure_params)
@@ -31,6 +26,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    authorize @group
   end
 
   private

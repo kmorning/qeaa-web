@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_member
+  include Pundit
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :exception
 
+  helper_method :current_member
+  
   def current_member
     if current_account
       current_account.member
@@ -9,7 +14,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+  def pundit_user
+    current_member
+  end
+
 end
