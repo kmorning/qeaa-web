@@ -68,6 +68,8 @@ gem 'tod'
 gem 'birthday'
 # Authentication
 gem 'devise'
+# Authorization
+gem 'pundit'
 
 ###############################################################
 #
