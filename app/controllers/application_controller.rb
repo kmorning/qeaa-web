@@ -2,7 +2,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_member
 
   def current_member
-    current_account.member
+    if current_account
+      current_account.member
+    else
+      nil
+    end
   end
 
   # Prevent CSRF attacks by raising an exception.
