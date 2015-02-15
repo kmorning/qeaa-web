@@ -1,9 +1,15 @@
 class MeetingsController < ApplicationController
+  before_filter :authenticate_account!
+  skip_before_filter :authenticate_account! , :only => [:index, :show]
+  after_action :verify_authorized, :except => [:index, :show]
+
   def new
+    authorize Meeting
     @meeting = Meeting.new
   end
 
   def create
+    authorize Meeting
     @meeting = Meeting.new(secure_params)
 
     @meeting.start_date = DateTime.now

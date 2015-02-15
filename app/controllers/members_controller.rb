@@ -1,10 +1,15 @@
 class MembersController < ApplicationController
+  before_filter :authenticate_account!
+  after_action :verify_authorized
+
   def new
+    authorize Member
     @member = Member.new
     @member.member_emails.build
   end
 
   def create
+    authorize Member
     @member = Member.new(secure_params)
 
     if @member.save
@@ -19,6 +24,7 @@ class MembersController < ApplicationController
 
   def show
     @member = Member.find(params[:id])
+    authorize @member
   end
 
   private
