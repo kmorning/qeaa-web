@@ -12,4 +12,8 @@
   <%= render 'layouts/events_dropdown' %>
 </li>
 <li class="name"><%= link_to "Contact", root_path %></li>
-<li class="right"><%= link_to 'Sign out', destroy_account_session_path, :method=>'delete' %></li>
+<% if current_member %>
+  <li class="right"><%= link_to 'Sign out', destroy_account_session_path, :method=>'delete' %></li>
+<% else %>
+  <li class="right"><%= link_to 'Sign in', new_account_session_path %></li>
+<% end %>
