@@ -8,6 +8,9 @@ class MembersController < ApplicationController
     @member = Member.new(secure_params)
 
     if @member.save
+      # Add group member role - is this redundant since member
+      # already has group_id?
+      # @member.add_role :member, @member.group
       redirect_to @member
     else
       render 'new'

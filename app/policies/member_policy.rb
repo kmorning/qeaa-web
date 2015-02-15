@@ -7,19 +7,16 @@ class MemberPolicy
   end
 
   def new?
-    @current_member.has_role?(:admin) or 
-      @current_member.has_role?(:group_admin)
+    @current_member.has_role? :admin
   end
 
   def create?
-    @current_member.has_role? :admin or
-      (@current_member.has_role?(:group_admin) and
-       @member.group_id == @current_member.group_id)
+    @current_member.has_role? :admin
   end
 
   def show?
-    @current_member.has_role?(:admin) or 
-      @member.group_id == @current_member.group_id
+    @member.group_id == @current_member.group_id or
+      @current_member.has_role?(:admin)
   end
 
 end

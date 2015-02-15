@@ -15,7 +15,7 @@ class GroupPolicy
   end
 
   def show?
-    @member.has_role?(:admin) or @group == @member.group
+     @group.id == @member.group_id or @member.has_role?(:admin)
   end
 
 end
