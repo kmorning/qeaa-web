@@ -13,7 +13,10 @@
 </li>
 <li class="name"><%= link_to "Contact", root_path %></li>
 <% if current_member %>
-  <li class="right"><%= link_to 'Sign out', destroy_account_session_path, :method=>'delete' %></li>
+  <li class="right has-dropdown">
+    <a><%= current_member.member_emails.first.email %></a>
+    <%= render 'layouts/current_member_dropdown' %>
+  </li>
 <% else %>
   <li class="right"><%= link_to 'Sign in', new_account_session_path %></li>
 <% end %>
