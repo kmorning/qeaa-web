@@ -1,11 +1,11 @@
 <%# Meeting List navigation %>
 <ul class="dropdown">
-  <li><%= link_to "Full Meeting List", root_path %></li>
-  <li><%= link_to "Monday", root_path %></li>
-  <li><%= link_to "Tuesday", root_path %></li>
-  <li><%= link_to "Wednesday", root_path %></li>
-  <li><%= link_to "Thursday", root_path %></li>
-  <li><%= link_to "Friday", root_path %></li>
-  <li><%= link_to "Saturday", root_path %></li>
-  <li><%= link_to "Sunday", root_path %></li>
+  <li><%= link_to "Full Meeting List", meetings_path(scope: :all) %></li>
+  <li><%= link_to "Monday", meetings_path(scope: :monday) %></li>
+  <li><%= link_to "Tuesday", meetings_path(scope: :tuesday) %></li>
+  <li><%= link_to "Wednesday", meetings_path(scope: :wednesday) %></li>
+  <li><%= link_to "Thursday", meetings_path(scope: :thursday) %></li>
+  <li><%= link_to "Friday", meetings_path(scope: :friday) %></li>
+  <li><%= link_to "Saturday", meetings_path(scope: :saturday) %></li>
+  <li><%= link_to "Sunday", meetings_path(scope: :sunday) %></li>
 </ul>
