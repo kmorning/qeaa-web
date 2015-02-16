@@ -40,17 +40,32 @@ $column-pad: rem-calc(30);
   padding-right: $column-pad;
 }
 
+@mixin page-wrap {
+  @extend .row;
+  background: #FFF;
+  height: 1200px;
+  -webkit-box-shadow: 0 0 5px rgba(153,153,153,0.5);
+  -moz-box-shadow: 0 0 5px rgba(153,153,153,0.5);
+  box-shadow: 0 0 5px rgba(153,153,153,0.5);
+}
+
+.wrapper {
+  @include page-wrap;
+}
+
 .content-columns {
   @include columns-padded;
 }
 
 // Main background and font
+/*
 .row {
   //background-color: #e1efcb;
   //font-family: Arial, Helvetica, sans-serif;
   //color: #00537c
   background-color: #FFF;
 }
+*/
 
 // Margin background
 body {
