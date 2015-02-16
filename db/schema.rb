@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20150216004031) do
 
   create_table "meetings", force: :cascade do |t|
     t.integer  "group_id"
+    t.string   "name"
     t.string   "facility"
     t.string   "street"
     t.string   "city"
@@ -57,7 +58,6 @@ ActiveRecord::Schema.define(version: 20150216004031) do
     t.integer  "frequency",  default: 0
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.string   "name"
   end
 
   add_index "meetings", ["group_id"], name: "index_meetings_on_group_id", using: :btree
