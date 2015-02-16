@@ -13,7 +13,7 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.new(secure_params)
 
     @meeting.start_date = DateTime.now
-    if @meeting.group_id? and @meeting.name.nil?
+    if @meeting.group_id? and not @meeting.name?
       @meeting.name = @meeting.group.name
     end
 
