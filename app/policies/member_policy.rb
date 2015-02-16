@@ -10,8 +10,18 @@ class MemberPolicy
     @current_member.has_role? :admin
   end
 
+  def edit?
+    @current_member == @member or
+      @current_member.has_role? :admin
+  end
+
   def create?
     @current_member.has_role? :admin
+  end
+
+  def update?
+    @current_member == @member or
+      @current_member.has_role? :admin
   end
 
   def show?

@@ -8,6 +8,11 @@ class MembersController < ApplicationController
     @member.member_emails.build
   end
 
+  def edit
+    @member = Member.find(params[:id])
+    authorize @member
+  end
+
   def create
     authorize Member
     @member = Member.new(secure_params)
@@ -22,6 +27,17 @@ class MembersController < ApplicationController
     end
   end
 
+  def update
+    @member = Member.find(params[:id])
+    authorize @member
+
+    if @member.update(secure_update_params)
+      redirect_to @member
+    else
+      render 'edit'
+    end
+  end
+
   def show
     @member = Member.find(params[:id])
     authorize @member
@@ -33,5 +49,13 @@ class MembersController < ApplicationController
                                   :phone, :birthday,
                                   member_emails_attributes: [:email])
   end
+
+  # This should disallow members from changing group or name
+  # TODO:  Allow admin to change group or name and change/add role.
+  def secure_update_params
+    params.require(:member).permit(:phone, :birthday,
+                                  member_emails_attributes: [:email])
+  end
+
 
 end
