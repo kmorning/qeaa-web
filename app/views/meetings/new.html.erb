@@ -10,7 +10,9 @@
      <div class="form">
        <%= simple_form_for @meeting do |f| %>
          <%= f.error_notification %>
-         <%= f.association :group %>
+         <%= f.association :group, :include_blank => "(No Group)" %>
+         <%# TODO: have name populate with group name if group is chosen %>
+         <%= f.input :name %>
          <%= f.input :facility %>
          <%= f.input :street %>
          <%= f.input :city %>

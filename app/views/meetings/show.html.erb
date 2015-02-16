@@ -1,7 +1,7 @@
-<% content_for :title do %><%= @meeting.group.name %><% end %>
+<% content_for :title do %><%= @meeting.name %><% end %>
 <div class="row">
   <div class="large-12 columns">
-    <h3><%= @meeting.group.name %></h3>
+    <h3><%= @meeting.name %></h3>
     <p>
     <%= @meeting.weekday.titleize %>
     <br>

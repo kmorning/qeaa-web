@@ -13,6 +13,9 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.new(secure_params)
 
     @meeting.start_date = DateTime.now
+    if @meeting.group_id? and @meeting.name.nil?
+      @meeting.name = @meeting.group.name
+    end
 
     if @meeting.save
       redirect_to @meeting
@@ -32,7 +35,7 @@ class MeetingsController < ApplicationController
 
   private
   def secure_params
-    params.require(:meeting).permit(:group_id, :facility, :street, :city,
+    params.require(:meeting).permit(:group_id, :name, :facility, :street, :city,
                                     :weekday, :time, :category, :format, 
                                     :accessible, :notice, :frequency)
   end

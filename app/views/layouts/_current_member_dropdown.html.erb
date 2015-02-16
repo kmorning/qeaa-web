@@ -1,9 +1,9 @@
 <%# AA at a Glance navigation %>
 <ul class="dropdown">
   <% if current_member.has_role? :admin %>
-    <li><%= link_to "Add Group", root_path %></li>
-    <li><%= link_to "Add Meeting", root_path %></li>
-    <li><%= link_to "Add Member", root_path %></li>
+    <li><%= link_to "Add Group", new_group_path %></li>
+    <li><%= link_to "Add Meeting", new_meeting_path %></li>
+    <li><%= link_to "Add Member", new_member_path %></li>
   <% end %>
   <li><%= link_to "Account", root_path %></li>
   <li><%= link_to 'Sign out', destroy_account_session_path, :method=>'delete' %></li>

@@ -33,6 +33,8 @@ class Meeting < ActiveRecord::Base
   # and end dates are implemented, meetings can have same day and time
   # as long as their start and end dates don't overlap.
   #validates :group_id, uniqueness: {scope: [:weekday, :time]}
+  validates_presence_of :group_id, :unless => :name?
+  validates_presence_of :name, :unless => :group_id?
   validates_presence_of :facility
   validates_presence_of :street
   validates_presence_of :city

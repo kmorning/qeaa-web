@@ -20,7 +20,7 @@
 
       <% @meetings.each do |meeting| %>
         <tr>
-          <td><%= meeting.group.name %></td>
+          <td><%= meeting.name %></td>
           <td><%= meeting.weekday.titleize %></td>
           <td><%= meeting.time.strftime("%l:%M %p") %></td>
           <td><%= meeting.facility %></td>
