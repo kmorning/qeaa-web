@@ -15,7 +15,7 @@
     <br>
     <strong>Type: </strong><%= @meeting.category.titleize %>
     <br>
-    <strong>Format: </strong><%= @meeting.format.titleize %>
+    <strong>Format: </strong><%= @meeting.format.titleize unless @meeting.format.nil?%>
 
     </p>
    </div>

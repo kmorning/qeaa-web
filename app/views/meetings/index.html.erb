@@ -27,7 +27,7 @@
           <td><%= meeting.street %></td>
           <td><%= meeting.city %></td>
           <td><%= meeting.category.titleize %></td>
-          <td><%= meeting.format.titleize %></td>
+          <td><%= meeting.format.titleize unless meeting.format.nil? %></td>
         </tr>
       <% end %>
     </table>

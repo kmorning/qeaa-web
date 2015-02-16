@@ -40,6 +40,6 @@ class Meeting < ActiveRecord::Base
   validates_presence_of :city
   validates_presence_of :weekday
   validates_presence_of :category
-  validates_presence_of :format
+  #validates_presence_of :format
 
 end
