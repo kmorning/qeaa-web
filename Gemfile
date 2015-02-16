@@ -86,6 +86,8 @@ group :development do
   #   We'll use this to set up Zurb Foundation and create the
   #   files we need.
   gem 'rails_layout'
+  # Plugin to create seed data from existing data in database.
+  gem 'seed_dump'
 end
 
 ################################################################
