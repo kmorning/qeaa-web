@@ -54,7 +54,7 @@ class MembersController < ApplicationController
   # TODO:  Allow admin to change group or name and change/add role.
   def secure_update_params
     params.require(:member).permit(:phone, :birthday,
-                                  member_emails_attributes: [:email])
+                                  member_emails_attributes: [:id, :email])
   end
 
 
