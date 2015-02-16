@@ -1,6 +1,12 @@
 <p>
   <strong>Name:</strong>
   <%= @member.name %><br>
-  <strong>id:</strong>
-  <%= @member.id %>
+  <strong>Group:</strong>
+  <%= @member.group.name %><br>
+  <strong>Phone:</strong>
+  <%= @member.phone %><br>
+  <strong>Email:</strong>
+  <%= @member.member_emails.first.email %><br>
+  <strong>Birthday:</strong>
+  <%= @member.birthday %>
 </p>

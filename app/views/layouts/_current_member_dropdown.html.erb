@@ -5,6 +5,6 @@
     <li><%= link_to "Add Meeting", new_meeting_path %></li>
     <li><%= link_to "Add Member", new_member_path %></li>
   <% end %>
-  <li><%= link_to "Account", root_path %></li>
+  <li><%= link_to "Account", member_path(current_member) %></li>
   <li><%= link_to 'Sign out', destroy_account_session_path, :method=>'delete' %></li>
 </ul>
