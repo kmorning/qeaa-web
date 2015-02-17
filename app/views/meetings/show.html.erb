@@ -1,8 +1,7 @@
 <% content_for :title do %><%= @meeting.name %><% end %>
-<div class="row">
-  <div class="large-12 columns">
-    <h3><%= @meeting.name %></h3>
-    <p>
+<div class="large-12 columns">
+  <h3><%= @meeting.name %></h3>
+  <p>
     <%= @meeting.weekday.titleize %>
     <br>
     <%= @meeting.time.strftime("%l:%M %p") %>
@@ -17,7 +16,11 @@
     <br>
     <strong>Format: </strong><%= @meeting.format.titleize unless @meeting.format.nil?%>
 
-    </p>
-   </div>
- </div>
-
+   </p>
+</div>
+<%# TODO:  allow group admin to edit. %>
+<% if current_member.has_role? :admin %>
+  <div class="large-12 columns">
+    <%= link_to 'Edit', edit_meeting_path(@meeting), class: "button" %>
+  </div>
+<% end %>

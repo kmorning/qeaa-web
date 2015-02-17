@@ -1,0 +1,28 @@
+<% content_for :title do %>Edit Meeting: <%= @meeting.name %><% end %>
+<div class="row">
+  <div class="large-12 columns">
+    <h3>Edit Meeting: <%= @meeting.name %></h3>
+  </div>
+</div>
+<div class="row">
+  <div class="large-8 columns">
+    <div class="panel">
+     <div class="form">
+       <%= simple_form_for @meeting, method: :patch do |f| %>
+         <%= f.error_notification %>
+         <%= f.input :name %>
+         <%= f.input :facility %>
+         <%= f.input :street %>
+         <%= f.input :city %>
+         <%= f.input :weekday, label: 'Day', collection: Meeting.weekdays.collect {|k,v| [k.titleize,k]} %>
+         <%= f.input :time %>
+         <%= f.input :category, collection: Meeting.categories.collect {|k,v| [k.titleize,k]} %>
+         <%= f.input :format, collection: Meeting.formats.collect {|k,v| [k.titleize,k]} %>
+         <%= f.input :frequency, collection: Meeting.frequencies.collect {|k,v| [k.titleize,k]} %>
+         <%= f.input :accessible, label: 'Wheelchair access' %>
+         <%= f.button :submit %>
+       <% end %>
+     </div>
+    </div>
+  </div>
+</div>

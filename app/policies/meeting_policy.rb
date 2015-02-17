@@ -10,7 +10,17 @@ class MeetingPolicy
     @member.has_role? :admin
   end
 
+  def edit?
+    # TODO: allow group admin to edit.
+    @member.has_role? :admin
+  end
+
   def create?
+    @member.has_role? :admin
+  end
+
+  def update?
+    # TODO: allow group admin to update.
     @member.has_role? :admin
   end
 

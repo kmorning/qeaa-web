@@ -8,6 +8,11 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.new
   end
 
+  def edit
+    @meeting = Meeting.find(params[:id])
+    authorize @meeting
+  end
+
   def create
     authorize Meeting
     @meeting = Meeting.new(secure_params)
@@ -24,6 +29,17 @@ class MeetingsController < ApplicationController
     end
   end
 
+  def update
+    @meeting = Meeting.find(params[:id])
+    authorize @meeting
+
+    if @meeting.update(secure_update_params)
+      redirect_to @meeting
+    else
+      render 'edit'
+    end
+  end
+
   def index
     @meetings = Meeting.order(:weekday, :time)
     @meetings = Meeting.send(params[:scope]).order(:weekday, :time) if params[:scope].present?
@@ -37,6 +53,12 @@ class MeetingsController < ApplicationController
   def secure_params
     params.require(:meeting).permit(:group_id, :name, :facility, :street, :city,
                                     :weekday, :time, :category, :format, 
+                                    :accessible, :notice, :frequency)
+  end
+
+  def secure_update_params
+    params.require(:meeting).permit(:name, :facility, :street, :city,
+                                    :weekday, :time, :category, :format,
                                     :accessible, :notice, :frequency)
   end
 end
