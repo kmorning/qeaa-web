@@ -39,7 +39,16 @@ class Meeting < ActiveRecord::Base
   validates_presence_of :street
   validates_presence_of :city
   validates_presence_of :weekday
+  validates_presence_of :time_str
   validates_presence_of :category
   #validates_presence_of :format
+
+  def time_str
+    time.strftime("%l:%M %p") if time
+  end
+
+  def time_str=(val)
+    self.time = Tod::TimeOfDay.try_parse(val)
+  end
 
 end

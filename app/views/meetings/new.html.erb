@@ -17,7 +17,7 @@
          <%= f.input :street %>
          <%= f.input :city %>
          <%= f.input :weekday, label: 'Day', collection: Meeting.weekdays.collect {|k,v| [k.titleize,k]} %>
-         <%= f.input :time %>
+         <%= f.input :time_str, label: 'Time' %>
          <%= f.input :category, collection: Meeting.categories.collect {|k,v| [k.titleize,k]} %>
          <%= f.input :format, collection: Meeting.formats.collect {|k,v| [k.titleize,k]} %>
          <%= f.input :frequency, collection: Meeting.frequencies.collect {|k,v| [k.titleize,k]} %>
