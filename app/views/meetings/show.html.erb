@@ -19,8 +19,10 @@
    </p>
 </div>
 <%# TODO:  allow group admin to edit. %>
-<% if current_member.has_role? :admin %>
-  <div class="large-12 columns">
-    <%= link_to 'Edit', edit_meeting_path(@meeting), class: "button" %>
-  </div>
+<% if current_member %>
+  <% if current_member.has_role? :admin %>
+    <div class="large-12 columns">
+      <%= link_to 'Edit', edit_meeting_path(@meeting), class: "button" %>
+    </div>
+  <% end %>
 <% end %>
