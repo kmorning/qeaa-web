@@ -20,7 +20,9 @@
 
       <% @meetings.each do |meeting| %>
         <tr>
-          <td><%= meeting.name %></td>
+          <td>
+            <%= link_to meeting.name, meeting_path(meeting) %>
+          </td>
           <td><%= meeting.weekday.titleize %></td>
           <td><%= meeting.time.strftime("%l:%M %p") %></td>
           <td><%= meeting.facility %></td>
