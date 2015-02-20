@@ -3,8 +3,15 @@
   <div class="full-centered">
     <h3>District 34 Meetings</h3>
   </div>
-</div>
-<div class="row">
+  <div class="full-centered">
+    <% Meeting.weekdays.collect do |k,v| %>
+      <%= link_to "#{k.titleize} ",  meetings_path(scope: k) %>
+      <% if v < 6 %> | <% end %>
+    <% end %>
+  </div>
+<!--/div-->
+<!--div class="row"-->
+  <div class="large-12 columns"><br></div>
   <div class="large-12 columns">
     <table>
       <tr>
