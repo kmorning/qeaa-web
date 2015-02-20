@@ -1,7 +1,7 @@
 <% content_for :title do %>District 34 Meetings<% end %>
 <div class="row">
-  <div class="large-12 columns">
-    <h3>Meetings</h3>
+  <div class="full-centered">
+    <h3>District 34 Meetings</h3>
   </div>
 </div>
 <div class="row">
@@ -33,6 +33,9 @@
         </tr>
       <% end %>
     </table>
+  </div>
+  <div class="full-centered">
+    <%= paginate @meetings %>
   </div>
 </div>
 

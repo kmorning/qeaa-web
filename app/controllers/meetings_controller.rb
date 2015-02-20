@@ -41,8 +41,8 @@ class MeetingsController < ApplicationController
   end
 
   def index
-    @meetings = Meeting.order(:weekday, :time)
-    @meetings = Meeting.send(params[:scope]).order(:weekday, :time) if params[:scope].present?
+    @meetings = Meeting.order(:weekday, :time).page params[:page]
+    @meetings = Meeting.send(params[:scope]).order(:weekday, :time).page params[:page] if params[:scope].present?
   end
 
   def show

@@ -70,6 +70,8 @@ gem 'birthday'
 gem 'devise'
 # Authorization
 gem 'pundit'
+# For paginating
+gem 'kaminari'
 
 ###############################################################
 #

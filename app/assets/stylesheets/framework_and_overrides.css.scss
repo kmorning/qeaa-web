@@ -33,6 +33,11 @@ $column-pad: rem-calc(30);
   @extend .columns;
   @extend .text-center;
   }
+@mixin twelve-columns-centered {
+  @extend .small-12;
+  @extend .columns;
+  @extend .text-center;
+}
 
 @mixin columns-padded {
   @extend .columns;
@@ -55,6 +60,10 @@ $column-pad: rem-calc(30);
 
 .content-columns {
   @include columns-padded;
+}
+
+.full-centered {
+  @include twelve-columns-centered;
 }
 
 // Main background and font
