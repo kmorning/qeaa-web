@@ -101,6 +101,7 @@ $panel-box-shadow-color: rgba(50, 50, 50, 0.75);
   @include panel();
   //background: #FFF;
   background: #FCFCFC;
+  //background: #F4FAEA;
   border-radius: $panel-border-radius;
   -webkit-box-shadow: $panel-box-shadow-opts $panel-box-shadow-color;
   -moz-box-shadow:    $panel-box-shadow-opts $panel-box-shadow-color;
