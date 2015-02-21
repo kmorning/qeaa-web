@@ -107,3 +107,14 @@ $panel-box-shadow-color: rgba(50, 50, 50, 0.75);
   box-shadow:         $panel-box-shadow-opts $panel-box-shadow-color;
 }
 
+.text-panel p {
+  //color: #00537c;
+  font-size: rem-calc(16);
+}
+
+// Quotes
+.quote-credit {
+  font-style: italic;
+  text-align: right;
+  font-size: rem-calc(10);
+}
