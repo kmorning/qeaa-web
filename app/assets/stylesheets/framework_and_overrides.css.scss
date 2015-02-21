@@ -95,14 +95,15 @@ body {
 // Panels
 $panel-border-radius: 5px;
 $panel-box-shadow-opts: 2px 2px 5px 0px;
+$panel-box-shadow-color: rgba(50, 50, 50, 0.75);
 
-.test-panel {
+.text-panel {
   @include panel();
   //background: #FFF;
   background: #FCFCFC;
   border-radius: $panel-border-radius;
-  -webkit-box-shadow: $panel-box-shadow-opts rgba(50, 50, 50, 0.75);
-  -moz-box-shadow:    $panel-box-shadow-opts rgba(50, 50, 50, 0.75);
-  box-shadow:         $panel-box-shadow-opts rgba(50, 50, 50, 0.75);
+  -webkit-box-shadow: $panel-box-shadow-opts $panel-box-shadow-color;
+  -moz-box-shadow:    $panel-box-shadow-opts $panel-box-shadow-color;
+  box-shadow:         $panel-box-shadow-opts $panel-box-shadow-color;
 }
 
