@@ -90,3 +90,13 @@ body {
   @include orbit-bullets-bottom-right;
 }
 
+
+// Panels
+$panel-border-radius: 5px;
+
+.test-panel {
+  @include panel();
+  background: #FFF;
+  border-radius: $panel-border-radius;
+}
+
