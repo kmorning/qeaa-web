@@ -2,7 +2,7 @@
 @import 'settings';
 @import "foundation";
 
-$column-pad: rem-calc(30);
+$column-pad: rem-calc(10);
 
 // override for the 'Home' navigation link
 .top-bar .name {
@@ -48,6 +48,7 @@ $column-pad: rem-calc(30);
 @mixin page-wrap {
   @extend .row;
   background: #FFF;
+  //background: #ECECEC;
   height: 1200px;
   -webkit-box-shadow: 0 0 5px rgba(153,153,153,0.5);
   -moz-box-shadow: 0 0 5px rgba(153,153,153,0.5);
@@ -93,10 +94,15 @@ body {
 
 // Panels
 $panel-border-radius: 5px;
+$panel-box-shadow-opts: 2px 2px 5px 0px;
 
 .test-panel {
   @include panel();
-  background: #FFF;
+  //background: #FFF;
+  background: #FCFCFC;
   border-radius: $panel-border-radius;
+  -webkit-box-shadow: $panel-box-shadow-opts rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    $panel-box-shadow-opts rgba(50, 50, 50, 0.75);
+  box-shadow:         $panel-box-shadow-opts rgba(50, 50, 50, 0.75);
 }
 
