@@ -118,3 +118,8 @@ $panel-box-shadow-color: rgba(50, 50, 50, 0.75);
   text-align: right;
   font-size: rem-calc(10);
 }
+
+// Text no break
+.nobr {
+  white-space:nowrap;
+}
