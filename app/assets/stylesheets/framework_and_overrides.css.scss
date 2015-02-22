@@ -109,6 +109,7 @@ $panel-border-radius: 5px;
 $panel-box-shadow-opts: 2px 2px 5px 0px;
 $panel-box-shadow-color: rgba(50, 50, 50, 0.75);
 
+// Panel for text content
 .text-panel {
   @include panel();
   background: #FCFCFC;
@@ -121,8 +122,27 @@ $panel-box-shadow-color: rgba(50, 50, 50, 0.75);
   }
 }
 
+// Panel to display table item on small displays
+.item-panel {
+  @include panel();
+  @include border-radius($panel-border-radius);
+  @include box-shadow($panel-box-shadow-opts, $panel-box-shadow-color);
+}
+
+.item-panel-wrapper {
+  @extend .show-for-small-only;
+  .item-panel:nth-child(odd) {
+    background-color: rgba(225, 239, 203, 1);
+  }
+  .item-panel:nth-child(even) {
+    background-color: #FCFCFC;
+  }
+}
+
+// Tables
 .table-panel {
   @include panel();
+  @extend .show-for-medium-up;
   background: #FFF;
   background: image-url('shutterstock_171728132.jpg');
   @include border-radius($panel-border-radius);
@@ -133,6 +153,7 @@ $panel-box-shadow-color: rgba(50, 50, 50, 0.75);
   padding-left: 0px;
   padding-right: 0px;
   table {
+    table-layout: fixed;
     background: transparent;
     border-collapse: collapse;
     width: 100%;

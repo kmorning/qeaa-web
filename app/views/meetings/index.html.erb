@@ -13,6 +13,7 @@
 <!--div class="row"-->
   <div class="large-12 columns"><br></div>
   <div class="large-12 content-columns">
+    <%# ----------- Medium to Large displays -----------%>
     <div class="table-panel">
     <table>
       <tr>
@@ -41,6 +42,23 @@
         </tr>
       <% end %>
     </table>
+    </div>
+    <%# ----------------------------------------------%>
+    
+    <%#-------------- Small Displays -----------------%>
+    <div class="item-panel-wrapper">
+      <% @meetings.each do |meeting| %>
+        <div class="item-panel">
+          <%= link_to meeting.name, meeting_path(meeting) %>, 
+          <%= meeting.weekday.titleize %>, 
+          <%= meeting.time.strftime("%l:%M %p") %><br/>
+          <%= meeting.facility %><br/>
+          <%= meeting.street %>, 
+          <%= meeting.city %><br/>
+          <%= meeting.category.titleize %>
+          <%= meeting.format.titleize unless meeting.format.nil? %>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="full-centered">
