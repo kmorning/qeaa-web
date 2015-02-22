@@ -113,6 +113,14 @@ $panel-box-shadow-color: rgba(50, 50, 50, 0.75);
   font-size: rem-calc(16);
 }
 
+.table-panel {
+  @include panel();
+  background: #FFF;
+  border-radius: $panel-border-radius;
+  background: url('shutterstock_171728132.jpg');
+  height: 667px;
+}
+
 // Quotes
 .quote-credit {
   font-style: italic;
