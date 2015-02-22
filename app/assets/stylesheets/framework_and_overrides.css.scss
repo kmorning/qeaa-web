@@ -91,6 +91,18 @@ body {
   @include orbit-bullets-bottom-right;
 }
 
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin box-shadow($opts, $color) {
+  -webkit-box-shadow: $opts $color;
+  -moz-box-shadow: $opts $color;
+  box-shadow: $opts $color;
+}
 
 // Panels
 $panel-border-radius: 5px;
@@ -99,25 +111,22 @@ $panel-box-shadow-color: rgba(50, 50, 50, 0.75);
 
 .text-panel {
   @include panel();
-  //background: #FFF;
   background: #FCFCFC;
-  //background: #F4FAEA;
-  border-radius: $panel-border-radius;
-  -webkit-box-shadow: $panel-box-shadow-opts $panel-box-shadow-color;
-  -moz-box-shadow:    $panel-box-shadow-opts $panel-box-shadow-color;
-  box-shadow:         $panel-box-shadow-opts $panel-box-shadow-color;
-}
+  @include border-radius($panel-border-radius);
+  @include box-shadow($panel-box-shadow-opts, $panel-box-shadow-color);
 
-.text-panel p {
-  //color: #00537c;
-  font-size: rem-calc(16);
+  p {
+      //color: #00537c;
+      font-size: rem-calc(16);
+  }
 }
 
 .table-panel {
   @include panel();
   background: #FFF;
-  border-radius: $panel-border-radius;
   background: url('shutterstock_171728132.jpg');
+  @include border-radius($panel-border-radius);
+  @include box-shadow($panel-box-shadow-opts, $panel-box-shadow-color);
   height: 667px;
 }
 
