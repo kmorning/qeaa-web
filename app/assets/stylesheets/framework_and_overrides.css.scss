@@ -83,7 +83,7 @@ body {
   background-color:#00537c;
   color: #000;
 //background-color: #e8f4d6;
-//  background-color: #e1efcb;
+//background-color: #e1efcb;
 }
 
 .home-orbit-container {
@@ -127,7 +127,24 @@ $panel-box-shadow-color: rgba(50, 50, 50, 0.75);
   background: url('shutterstock_171728132.jpg');
   @include border-radius($panel-border-radius);
   @include box-shadow($panel-box-shadow-opts, $panel-box-shadow-color);
-  height: 667px;
+  //height: 667px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  table {
+    background: transparent;
+    border-collapse: collapse;
+    td {
+      //padding: 0;
+    }
+    tr:nth-child(odd){ 
+      background-color: rgba(225, 239, 203, 0.8); 
+    }
+    tr:nth-child(even) { 
+      background-color: rgba(255, 255, 255, 0.8); 
+    }
+  }
 }
 
 // Quotes
