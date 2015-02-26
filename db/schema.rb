@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150216004031) do
+ActiveRecord::Schema.define(version: 20150226155553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,12 +34,33 @@ ActiveRecord::Schema.define(version: 20150216004031) do
   add_index "accounts", ["member_id"], name: "index_accounts_on_member_id", using: :btree
   add_index "accounts", ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true, using: :btree
 
+  create_table "events", force: :cascade do |t|
+    t.integer  "group_id"
+    t.integer  "instance_id"
+    t.string   "instance_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "events", ["group_id"], name: "index_events_on_group_id", using: :btree
+  add_index "events", ["instance_type", "instance_id"], name: "index_events_on_instance_type_and_instance_id", using: :btree
+
   create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.date     "anniversary"
   end
+
+  create_table "medallions", force: :cascade do |t|
+    t.integer  "meeting_id"
+    t.integer  "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "medallions", ["meeting_id"], name: "index_medallions_on_meeting_id", using: :btree
+  add_index "medallions", ["member_id"], name: "index_medallions_on_member_id", using: :btree
 
   create_table "meetings", force: :cascade do |t|
     t.integer  "group_id"
@@ -102,4 +123,7 @@ ActiveRecord::Schema.define(version: 20150216004031) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
+  add_foreign_key "events", "groups"
+  add_foreign_key "medallions", "meetings"
+  add_foreign_key "medallions", "members"
 end
