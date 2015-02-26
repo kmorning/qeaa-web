@@ -3,7 +3,7 @@ class Group < ActiveRecord::Base
   has_many :members, inverse_of: :group
   has_many :meetings, inverse_of: :group
   has_many :events
-  has_many :medallions, through: :events, source: :event, source_type: 'Medallion'
+  has_many :medallions, through: :events, source: :instance, source_type: 'Medallion'
 
   acts_as_birthday :anniversary
 
