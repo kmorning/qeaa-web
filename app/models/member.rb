@@ -21,4 +21,12 @@ class Member < ActiveRecord::Base
     [first_name, last_initial].compact.join(' ')
   end
 
+  def birthday_age_on_next
+    if self.birthday_today?
+      self.birthday_age
+    else
+      self.birthday_age + 1
+    end
+  end
+
 end

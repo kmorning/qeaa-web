@@ -1,2 +1,37 @@
-<h1>Birthday#index</h1>
-<p>Find me in app/views/birthday/index.html.erb</p>
+<% content_for :title do %>District 34 Birthdays<% end %>
+<div class="row">
+  <div class="full-centered">
+    <h3>District 34 Birthdays</h3>
+  </div>
+
+  <div class="large-12 columns"><br></div>
+  <div class="large-12 content-columns">
+    <%# ----------- Medium to Large displays -----------%>
+    <div class="table-panel">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Years</th>
+          <th>Date</th>
+          <th>Group</th>
+        </tr>
+
+        <% @members.each do |member| %>
+          <tr>
+            <td><%= member.name %></td>
+            <td>
+              <% if member.birthday_age_on_next > 1 %>
+                <%= "#{member.birthday_age_on_next} years" %>
+              <% else %>
+                <%= "#{member.birthday_age_on_next} year" %>
+              <% end %>
+            </td>
+            <td><%= member.birthday.to_s(:month_and_day) %></td>
+            <td><%= member.group.name %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+
