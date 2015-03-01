@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'birthday/index'
+
   devise_for :accounts,
     :controllers => { :registrations => "registrations" }
   resources :meetings
