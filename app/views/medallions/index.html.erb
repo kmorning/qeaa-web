@@ -1,0 +1,54 @@
+<% content_for :title do %>District 34 Medallions<% end %>
+<div class="row">
+  <div class="full-centered">
+    <h3>District 34 Medallions</h3>
+  </div>
+
+  <div class="large-12 columns"><br></div>
+  <div class="large-12 content-columns">
+    <%# ----------- Medium to Large displays -----------%>
+    <div class="table-panel">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Years</th>
+          <th>Date</th>
+          <th>Group</th>
+        </tr>
+
+        <% @medallions.each do |medallion| %>
+          <tr>
+            <td><%= medallion.member.name %></td>
+            <td>
+              <% if medallion.years > 1 %>
+                <%= "#{medallion.years} years" %>
+              <% else %>
+                <%= "#{medallion.years} year" %>
+              <% end %>
+            </td>
+            <td><%= medallion.date.strftime('%B %d') %></td>
+            <td><%= medallion.group.name %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <%# ----------------------------------------------%>
+
+    <%#-------------- Small Displays -----------------%>
+    <div class="item-panel-wrapper">
+      <% @medallions.each do |medallion| %>
+        <div class="item-panel">
+          <%= medallion.member.name %>,
+          <% if medallion.years > 1 %>
+            <%= "#{medallion.years} years, " %>
+          <% else %>
+            <%= "#{medallion.years} year, " %>
+          <% end %>
+          <%= medallion.date.strftime('%B %d') %><br/>
+          <%= medallion.group.name %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
