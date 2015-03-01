@@ -4,8 +4,13 @@ class Medallion < ActiveRecord::Base
   belongs_to :meeting
   belongs_to :member
 
+  validates_presence_of :meeting_id
+  validates_presence_of :member_id
+  validates_presence_of :years
+  validates_presence_of :date_str
+
   def date_str
-    date.strftime('%B %d %Y')
+    date.strftime('%B %d %Y') if date
   end
 
   def date_str=(val)

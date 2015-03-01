@@ -26,6 +26,6 @@ class MedallionsController < ApplicationController
   end
 
   def secure_params
-    params.require(:medallion).permit(:meeting_id, :member_id, :date_str)
+    params.require(:medallion).permit(:meeting_id, :member_id, :years, :date_str)
   end
 end
