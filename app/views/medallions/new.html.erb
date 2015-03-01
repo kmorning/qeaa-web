@@ -12,7 +12,7 @@
          <%= f.error_notification %>
          <%= f.association :meeting, collection: @group.meetings, label_method: :name %>
          <%= f.association :member, collection: @group.members, label_method: :name %>
-         <%= f.input :date %>
+         <%= f.input :date_str, label: 'Date' %>
          <%= f.button :submit %>
        <% end %>
      </div>
