@@ -29,4 +29,16 @@ class Member < ActiveRecord::Base
     end
   end
 
+  def birthday_str
+    birthday.to_s
+  end
+
+  def birthday_str=(val)
+    begin
+      self.birthday = Date.parse(val)
+    rescue ArgumentError=>e
+      self.birthday = nil
+    end
+  end
+
 end
