@@ -8,6 +8,7 @@
       <% if current_member.has_role? :admin %>
         <%= link_to 'Edit', edit_group_path(@group), class: "button" %>
         <%= link_to 'Destroy', group_path(@group), class: "button", method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Add Medallion', new_group_medallion_path(@group), class: "button" %>
       <% end %>
     <% end %>
   </div>

@@ -6,9 +6,13 @@ Rails.application.routes.draw do
 
   resources :members
 
-  resources :groups
+  resources :medallions, only: [:index]
 
-  resources :birthdays
+  resources :groups do
+    resources :medallions
+  end
+
+  resources :birthdays, only: [:index]
 
   # Set high_voltage home page as root
   HighVoltage.configure do |config|
