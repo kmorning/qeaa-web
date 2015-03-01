@@ -32,6 +32,23 @@
         <% end %>
       </table>
     </div>
+    <%# ----------------------------------------------%>
+
+    <%#-------------- Small Displays -----------------%>
+    <div class="item-panel-wrapper">
+      <% @members.each do |member| %>
+        <div class="item-panel">
+          <%= member.name %>,
+          <% if member.birthday_age_on_next > 1 %>
+            <%= "#{member.birthday_age_on_next} years, " %>
+          <% else %>
+            <%= "#{member.birthday_age_on_next} year, " %>
+          <% end %>
+          <%= member.birthday.to_s(:month_and_day) %><br/>
+          <%= member.group.name %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
