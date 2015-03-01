@@ -1,4 +1,4 @@
-class BirthdayController < ApplicationController
+class BirthdaysController < ApplicationController
   def index
     # TODO: maybe put this logic in a model and allow for variable days
     # TODO: add birthday postable role to members, so that we can control

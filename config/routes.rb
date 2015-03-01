@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'birthday/index'
 
   devise_for :accounts,
     :controllers => { :registrations => "registrations" }
@@ -8,6 +7,8 @@ Rails.application.routes.draw do
   resources :members
 
   resources :groups
+
+  resources :birthdays
 
   # Set high_voltage home page as root
   HighVoltage.configure do |config|
