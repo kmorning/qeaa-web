@@ -5,6 +5,6 @@ class BirthdaysController < ApplicationController
     # whether or not a birthday is automatically shown.
     start_date = Date.today
     end_date = start_date.advance(days: +45)
-    @members = Member.find_birthdays_for(start_date, end_date).order(:birthday)
+    @members = Member.find_birthdays_for(start_date, end_date).sort_by{ |m| [m.birthday.month, m.birthday.day] }
   end
 end
