@@ -14,6 +14,6 @@ class Medallion < ActiveRecord::Base
   end
 
   def date_str=(val)
-    self.date = Time.parse(val).at_end_of_day
+    self.date = DateTime.parse(val).at_end_of_day
   end
 end
