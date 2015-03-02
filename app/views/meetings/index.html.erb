@@ -24,7 +24,8 @@
         <th>Street</th>
         <th>City/Town</th>
         <th>Type</th>
-        <th>Format</th>
+        <!--th>Format</th-->
+        <th>Notes</th>
       </tr>
 
       <% @meetings.each do |meeting| %>
@@ -38,7 +39,8 @@
           <td><%= meeting.street %></td>
           <td><%= meeting.city %></td>
           <td><%= meeting.category.titleize %></td>
-          <td><%= meeting.format.titleize unless meeting.format.nil? %></td>
+          <!--td--><%# meeting.format.titleize unless meeting.format.nil? %><!--/td-->
+          <td><%= "(WA)" if meeting.accessible? %>
         </tr>
       <% end %>
     </table>
@@ -56,12 +58,14 @@
           <%= meeting.street %>, 
           <%= meeting.city %><br/>
           <%= meeting.category.titleize %>
-          <%= meeting.format.titleize unless meeting.format.nil? %>
+          <%#= meeting.format.titleize unless meeting.format.nil? %>
+          <%= "(WA)" if meeting.accessible? %>
         </div>
       <% end %>
     </div>
   </div>
   <div class="full-centered">
+    (WA) = Wheelchair Accessible</br>
     <%= paginate @meetings %>
   </div>
 </div>
