@@ -4,7 +4,14 @@ class MedallionsController < ApplicationController
   after_action :verify_authorized, :except => :index
 
   def index
-    @medallions = @group.present? ? @group.medallions : Medallion.all
+    #@medallions = @group.present? ? @group.medallions : Medallion.all
+    if @group.present?
+      @medallions = @group.medallions
+    else
+      start_date = DateTime.now
+      end_date = start_date.advance(days: +60)
+      @medallions = Medallion.where(date: start_date..end_date).order(:date)
+    end
   end
 
   def new
