@@ -24,6 +24,10 @@ class GroupPolicy
     @member.has_role? :admin
   end
 
+  def update?
+    @member.has_role? :admin
+  end
+
   def destroy?
     @member.has_role? :admin
   end

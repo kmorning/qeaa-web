@@ -1,16 +1,19 @@
 class MedallionsController < ApplicationController
-  before_filter :load_group
+  before_filter :load_group, :authenticate_account!
+  skip_before_filter :authenticate_account! , :only => :index
+  after_action :verify_authorized, :except => :index
 
   def index
     @medallions = @group.present? ? @group.medallions : Medallion.all
   end
 
   def new
+    authorize Medallion
     @medallion = Medallion.new
-    #@event = @group.events.build(instance: @medallion)
   end
 
   def create
+    authorize Medallion
     @medallion = Medallion.new(secure_params)
 
     if @group.events.create(instance: @medallion)
