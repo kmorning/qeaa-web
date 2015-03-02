@@ -26,7 +26,7 @@
                 <%= "#{medallion.years} year" %>
               <% end %>
             </td>
-            <td><%= medallion.date.strftime('%B %d') %></td>
+            <td><%= medallion.date.strftime('%B %e') %></td>
             <td><%= medallion.group.name %></td>
           </tr>
         <% end %>
@@ -44,7 +44,7 @@
           <% else %>
             <%= "#{medallion.years} year, " %>
           <% end %>
-          <%= medallion.date.strftime('%B %d') %><br/>
+          <%= medallion.date.strftime('%B %e') %><br/>
           <%= medallion.group.name %>
         </div>
       <% end %>
