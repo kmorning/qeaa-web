@@ -11,7 +11,7 @@
     <%= csrf_meta_tags %>
     <%= favicon_link_tag image_path('favicon.ico') %>
   </head>
-  <body>
+  <body <%= "id=#{params[:id]}" if params[:id].present? %> class="<%= controller_name %> <%= action_name %>">
     <div class="wrapper">
       <header>
         <%= render 'layouts/header' %>
