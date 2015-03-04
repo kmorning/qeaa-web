@@ -15,7 +15,7 @@
   <a>District 34 Service</a>
   <%= render 'layouts/service_dropdown' %>
 </li>
-<li class="name"><%= link_to "Contact", root_path %></li>
+<li class="name"><%= link_to "Contact", page_path('maintenance') %></li>
 <% if current_member %>
   <li class="right has-dropdown">
     <a><%= current_member.member_emails.first.email %></a>
