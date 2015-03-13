@@ -22,7 +22,10 @@ class Member < ActiveRecord::Base
   end
 
   def birthday_age_on_next
-    if self.birthday_today?
+    #if self.birthday_today?
+    today = Date.parse(Time.zone.now.to_s)
+    bday = Date.parse("#{self.birthday.strftime('%b %e')} #{today.strftime('%Y')}")
+    if bday == today
       self.birthday_age
     else
       self.birthday_age + 1
