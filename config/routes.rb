@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
   resources :birthdays, only: [:index]
 
+  match '/contacts',  to: 'contacts#new', via: 'get'
+  resources "contacts", only: [:new, :create]
+
   # Set high_voltage home page as root
   HighVoltage.configure do |config|
     config.home_page = 'home'
