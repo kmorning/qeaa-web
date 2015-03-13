@@ -72,6 +72,8 @@ gem 'devise'
 gem 'pundit'
 # For paginating
 gem 'kaminari'
+# Mail form
+gem 'mail_form'
 
 ###############################################################
 #
