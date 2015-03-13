@@ -5,7 +5,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: "localhost",
     port: 25,
-    domain: ENV['QEAA_DOMAIN_NAME'],
+    domain: ENV['QEAA_DOMAIN_NAME']
   }
 
   config.action_mailer.default_url_options = { host: "www.#{ENV['QEAA_DOMAIN_NAME']}" }
