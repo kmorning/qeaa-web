@@ -1,0 +1,24 @@
+<% content_for :title do %>Contact Us<% end %>
+<div class="row">
+  <div class="large-12 columns">
+    <h3>Member</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="large-8 columns">
+    <div class="panel">
+     <div class="form">
+       <%= simple_form_for @contact, {class: 'form-horizontal'} do |f| %>
+         <%= f.error_notification %>
+         <%= f.input :name %>
+         <%= f.input :email %>
+         <%= f.input :message, as: :text %>
+         <div class="hidden">
+           <%= f.input :nickname, hint: 'Leave this field blank!' %>
+         </div>
+         <%= f.button :submit, 'Send message' %>
+       <% end %>
+     </div>
+    </div>
+  </div>
+</div>

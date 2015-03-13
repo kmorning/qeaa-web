@@ -4,12 +4,16 @@ class Contact < MailForm::Base
   attribute :message
   attribute :nickname, captcha: true
 
+  validates_presence_of :name
+  validates_presence_of :email
+  validates_presence_of :message
+
   # Declare the e-mail headers. It accepts anything the mail method
   # in ActionMailer accepts.
   def headers
     {
-      subject: 'My Contact Form'
-      to: "webmaster@#{Rails.application.secrets.domain_name}"
+      subject: 'My Contact Form',
+      to: "webmaster@#{Rails.application.secrets.domain_name}",
       from: %("#{name}" <#{email}>)
     }
   end
