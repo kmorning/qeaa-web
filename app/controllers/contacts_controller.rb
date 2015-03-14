@@ -3,6 +3,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new
     if params[:recipient].present?
       @contact.recipient = params[:recipient]
+      redirect_to root_path unless @contact.recipient_valid?
     else
       @contact.recipient = "noreply"
     end
