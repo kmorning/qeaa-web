@@ -18,7 +18,7 @@ class ContactsController < ApplicationController
   private
   # TODO: add member id for email lookup.
   def secure_params
-    params.require(:contact).permit(:name, :email, :message, :nickname)
+    params.require(:contact).permit(:name, :email, :subject_str, :message, :nickname)
   end
 end
 
