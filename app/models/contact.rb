@@ -13,7 +13,7 @@ class Contact < MailForm::Base
   # in ActionMailer accepts.
   def headers
     {
-      subject: subject_str.nil? ? "Website contact request" : subject_str,
+      subject: subject_str.blank? ? "Website contact request" : subject_str,
       to: "webmaster@#{Rails.application.secrets.domain_name}",
       from: %("#{name}" <#{email}>)
     }
