@@ -1,6 +1,11 @@
 class ContactsController < ApplicationController
   def new
     @contact = Contact.new
+    if params[:recipient].present?
+      @contact.recipient = params[:recipient]
+    else
+      @contact.recipient = "noreply"
+    end
   end
 
   def create
@@ -18,7 +23,7 @@ class ContactsController < ApplicationController
   private
   # TODO: add member id for email lookup.
   def secure_params
-    params.require(:contact).permit(:name, :email, :subject_str, :message, :nickname)
+    params.require(:contact).permit(:recipient, :name, :email, :subject_str, :message, :nickname)
   end
 end
 

@@ -1,4 +1,5 @@
 class Contact < MailForm::Base
+  attribute :recipient
   attribute :name, validate: true
   attribute :email, validate: /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
   attribute :subject_str
@@ -14,7 +15,8 @@ class Contact < MailForm::Base
   def headers
     {
       subject: subject_str.nil? ? "Website contact request" : subject_str,
-      to: "webmaster@#{Rails.application.secrets.domain_name}",
+      # TODO: validate recipient
+      to: "#{recipient}@#{Rails.application.secrets.domain_name}",
       from: %("#{name}" <#{email}>)
     }
   end

@@ -1,15 +1,16 @@
-<% content_for :title do %>Contact Us<% end %>
+<% content_for :title do %>Quinte East AA - Contact <%= @contact.recipient.titleize %><% end %>
 <div class="row">
   <div class="large-12 columns">
-    <h3>Member</h3>
+    <h3>Contact <%= @contact.recipient.titleize %></h3>
   </div>
 </div>
 <div class="row">
-  <div class="large-8 columns">
+  <div class="small-12 large-8 columns">
     <div class="panel">
      <div class="form">
        <%= simple_form_for @contact, {class: 'form-horizontal'} do |f| %>
          <%= f.error_notification %>
+         <%= f.hidden_field :recipient %>
          <%= f.input :name %>
          <%= f.input :email %>
          <%= f.input :subject_str, label: 'Subject' %>
