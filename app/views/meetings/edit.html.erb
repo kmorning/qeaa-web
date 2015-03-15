@@ -20,6 +20,7 @@
          <%= f.input :format, collection: Meeting.formats.collect {|k,v| [k.titleize,k]} %>
          <%= f.input :frequency, collection: Meeting.frequencies.collect {|k,v| [k.titleize,k]} %>
          <%= f.input :accessible, label: 'Wheelchair access' %>
+         <%= f.input :notice %>
          <%= f.button :submit %>
        <% end %>
      </div>
