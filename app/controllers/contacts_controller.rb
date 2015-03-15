@@ -3,9 +3,10 @@ class ContactsController < ApplicationController
     @contact = Contact.new
     if params[:recipient].present?
       @contact.recipient = params[:recipient]
-      redirect_to root_path unless @contact.recipient_valid?
+      # Don't allow arbitrary recipient parameter
+      redirect_to page_path('contact') unless @contact.recipient_valid?
     else
-      @contact.recipient = "noreply"
+      @contact.recipient = "webmaster"
     end
   end
 
