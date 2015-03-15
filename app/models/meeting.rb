@@ -54,8 +54,8 @@ class Meeting < ActiveRecord::Base
   def notes
     if  self.accessible?
       note_str = "(WA)"
-      if self.notice
-        note_str += ", " + self.notice
+      unless self.notice.blank?
+        note_str = self.notice + ", " + note_str
       end
     else
       note_str = self.notice
