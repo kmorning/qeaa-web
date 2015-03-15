@@ -21,7 +21,8 @@ class Contact < MailForm::Base
                     secretary: 'Secretary',
                     treasurer: 'Treasurer',
                     treatment: 'Treatment Chair',
-                    grapevine: 'Grapevine Chair'
+                    grapevine: 'Grapevine Chair',
+                    corrections: 'Corrections Chair'
                   }
 
   def recipient
