@@ -1,7 +1,8 @@
+//@import 'boxshadow';
 
-.date-icon {
+.date-icon-large {
   background: #FFF;
-  background: image-url('calendar_icon_blank.png');
+  background: image-url('calendar_icon_blank_large.png');
   width: 116px;
   height: 146px;
   margin: 0px;
@@ -26,6 +27,37 @@
     margin: 0px;
     text-align: center;
     line-height: 74px;
+  }
+}
+
+.date-icon {
+  background: #FFF;
+  background: image-url('calendar_icon_blank.png');
+  width: 68px;
+  height: 87px;
+  margin: 0px;
+  padding: 0px;
+  //@include box-shadow(0px 0px 0px 1px, rgba(50, 50, 50, 0.75));
+
+  h3 {
+    font-family: Arial, Times New Roman, Helvetica, Sans-Serif;
+    color: #FFFFFF;
+    font-size: 23px;
+    font-weight: bold;
+    padding: 0px 0px 0px 10px;
+    margin: 0px;
+    text-transform: uppercase;
+    //line-height: 10px;
+  }
+
+  h4 {
+    font-family: Arial, Times New Roman, Helvetica, Sans-Serif;
+    color: #9e9e9e;
+    font-size: 49px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px;
+    text-align: center;
+    line-height: 50px;
   }
 }
 
