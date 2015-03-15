@@ -1,25 +1,33 @@
-<% content_for :title do %>Contact Us<% end %>
+<% content_for :title do %>Quinte East AA - Contact <%= @contact.recipient_name %><% end %>
+</br>
 <div class="row">
-  <div class="large-12 columns">
-    <h3>Member</h3>
-  </div>
-</div>
-<div class="row">
-  <div class="large-8 columns">
-    <div class="panel">
-     <div class="form">
-       <%= simple_form_for @contact, {class: 'form-horizontal'} do |f| %>
-         <%= f.error_notification %>
-         <%= f.input :name %>
-         <%= f.input :email %>
-         <%= f.input :subject_str, label: 'Subject' %>
-         <%= f.input :message, as: :text %>
-         <div class="hidden">
-           <%= f.input :nickname, hint: 'Leave this field blank!' %>
-         </div>
-         <%= f.button :submit, 'Send message' %>
-       <% end %>
-     </div>
+  <div class="small-12 content-columns">
+    <div class="text-panel">
+      <div class="row">
+        <div class="small-12 large-8 large-centered columns">
+          <h4>Contact <%= @contact.recipient_name %></h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 large-8 large-centered columns">
+          <div class="panel">
+            <div class="form">
+              <%= simple_form_for @contact, {class: 'form-horizontal'} do |f| %>
+              <%= f.error_notification %>
+              <%= f.hidden_field :recipient %>
+              <%= f.input :name %>
+              <%= f.input :email %>
+              <%= f.input :subject_str, label: 'Subject' %>
+              <%= f.input :message, as: :text, :input_html => { :cols => 5, :rows => 10 } %>
+              <div class="hidden">
+                <%= f.input :nickname, hint: 'Leave this field blank!' %>
+              </div>
+              <%= f.button :submit, 'Send' %>
+              <%= link_to "Cancel", :back, class: "button" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

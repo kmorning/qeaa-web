@@ -1,0 +1,66 @@
+<% content_for :title do %>
+  AA District 34 Quinte East - Contact Us
+<% end %>
+
+<br>
+<div class="row">
+  <div class="small-12 content-columns">
+    <div class="text-panel">
+      <div>
+        <h4 class="text-center"><strong>District 34 Webmaster</strong></h4>
+      </div>
+      <p>For information, questions, comments regarding this website, or to report any errors or omisisons, please contact the discrict webmaster using the link below.  If you are the GSR for your group, you can use this email to update the Webmaster with Medallion information, Group Anniversaries and Group Events.</p>
+      <div class="text-center">
+        <%= link_to 'Contact Webmaster', contacts_path(recipient: :webmaster) %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 large-6 content-columns">
+    <div class="text-panel">
+      <div class="row">
+        <div class="small-12 content-columns">
+          <h4><strong>Contact District 34 Sub-Committees</strong></h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 large-12 content-columns">
+          <div>
+            <ul>
+              <li><%= link_to 'Public Information Chair', contacts_path(recipient: :pic) %></li>
+              <li><%= link_to 'Corrections Chair', contacts_path(recipient: :corrections) %></li>
+              <li><%= link_to 'Treatment Chair',  contacts_path(recipient: :treatment) %></li>
+              <li><%= link_to 'Grapevine Chair', contacts_path(recipient: :grapevine) %></li>
+              <li><%= link_to 'Self Support Chair', contacts_path(recipient: :selfsupport) %></li>
+              <li><%= link_to 'Archives Chair', contacts_path(recipient: :archives) %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="small-12 large-6 content-columns">
+    <div class="text-panel">
+      <div class="row">
+        <div class="small-12 content-columns">
+          <h4><strong>Contact District 34 Elected Officers</strong></h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 large-12 content-columns">
+          <div>
+            <ul>
+              <li><%= link_to 'District Committee Member', contacts_path(recipient: :dcm) %></li>
+              <li><%= link_to 'Alternate DCM', contacts_path(recipient: :alternatedcm) %></li>
+              <li><%= link_to 'Treasurer',  contacts_path(recipient: :treasurer) %></li>
+              <li><%= link_to 'Secretary', contacts_path(recipient: :secretary) %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
