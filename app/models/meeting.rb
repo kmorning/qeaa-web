@@ -51,4 +51,16 @@ class Meeting < ActiveRecord::Base
     self.time = Tod::TimeOfDay.try_parse(val)
   end
 
+  def notes
+    if  self.accessible?
+      note_str = "(WA)"
+      unless self.notice.blank?
+        note_str = self.notice + ", " + note_str
+      end
+    else
+      note_str = self.notice
+    end
+    note_str
+  end
+
 end
