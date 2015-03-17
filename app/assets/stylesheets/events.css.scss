@@ -30,7 +30,8 @@
   }
 }
 
-.date-icon {
+
+@mixin date-icon-template($month_pad, $month_line_height, $day_pad, $day_line_height) {
   background: #FFF;
   background: image-url('calendar_icon_blank.png');
   width: 68px;
@@ -44,20 +45,29 @@
     color: #FFFFFF;
     font-size: 23px;
     font-weight: bold;
-    padding: 0px 0px 0px 10px;
+    padding: $month_pad;
     margin: 0px;
     text-transform: uppercase;
-    //line-height: 10px;
+    line-height: $month_line_height;
   }
 
   h4 {
     font-family: Arial, Times New Roman, Helvetica, Sans-Serif;
     color: #9e9e9e;
     font-size: 49px;
-    padding: 0px 0px 0px 0px;
+    padding: $day_pad;
     margin: 0px;
     text-align: center;
-    line-height: 50px;
+    line-height: $day_line_height;
   }
 }
 
+.date-icon {
+  @include date-icon-template(0px 0px 0px 10px, 30px, 0px 0px 0px 0px, 50px);
+}
+
+.text-panel {
+  .date-icon {
+     @include date-icon-template(0px 0px 0px 9px, 30px, 0px 0px 0px 0px, 50px);
+  }
+}
