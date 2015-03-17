@@ -10,6 +10,11 @@
     <div class="table-panel">
       <table>
         <tr>
+          <% if current_member %>
+            <% if current_member.has_role? :admin %>
+              <th>id</th>
+            <% end %>
+          <% end %>
           <th>Name</th>
           <th>Years</th>
           <th>Date</th>
@@ -18,6 +23,11 @@
 
         <% @medallions.each do |medallion| %>
           <tr>
+            <% if current_member %>
+              <% if current_member.has_role? :admin %>
+                <td><%= link_to medallion.id, medallion_path(medallion) %></td>
+              <% end %>
+            <% end %>
             <td><%= medallion.member.name %></td>
             <td>
               <% if medallion.years > 1 %>

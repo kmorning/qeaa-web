@@ -1,0 +1,21 @@
+<% content_for :title do %><%= "Medallion #{@medallion.id}" %><% end %>
+<div class="large-12 columns">
+  <h3><%= @medallion.member.name %></h3>
+  <p>
+    <%= @medallion.meeting.name %>
+    <br>
+    <%= @medallion.date.strftime("%B %e") %>
+    <br>
+    <%= "#{@medallion.years} years" %>
+   </p>
+</div>
+<%# TODO:  allow group admin to edit. %>
+<div class="large-12 columns">
+  <%= link_to "Back", :back, class: "button" %>
+  <% if current_member %>
+    <% if current_member.has_role? :admin %>
+      <%= link_to 'Edit', edit_medallion_path(@medallion), class: "button" %>
+    <% end %>
+  <% end %>
+</div>
+

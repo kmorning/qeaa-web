@@ -14,6 +14,12 @@ class MedallionsController < ApplicationController
     end
   end
 
+  def show
+    authorize Medallion
+    @medallion = Medallion.find(params[:id])
+  end
+
+
   def new
     authorize Medallion
     @medallion = Medallion.new
