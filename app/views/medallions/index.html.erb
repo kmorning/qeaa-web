@@ -1,7 +1,11 @@
 <% content_for :title do %>District 34 Medallions<% end %>
 <div class="row">
   <div class="full-centered">
-    <h3>District 34 Medallions</h3>
+    <% if @group.present? %>
+      <h3><%= "#{@group.name} Medallions" %></h3>
+    <% else %>
+      <h3>District 34 Medallions</h3>
+    <% end %>
   </div>
 
   <div class="large-12 columns"><br></div>
@@ -10,7 +14,7 @@
     <div class="table-panel">
       <table>
         <tr>
-          <% if current_member %>
+          <% if current_member and @group.present? %>
             <% if current_member.has_role? :admin %>
               <th>id</th>
             <% end %>
@@ -23,7 +27,7 @@
 
         <% @medallions.each do |medallion| %>
           <tr>
-            <% if current_member %>
+            <% if current_member and @group.present? %>
               <% if current_member.has_role? :admin %>
                 <td><%= link_to medallion.id, medallion_path(medallion) %></td>
               <% end %>
@@ -48,6 +52,11 @@
     <div class="item-panel-wrapper">
       <% @medallions.each do |medallion| %>
         <div class="item-panel">
+          <% if current_member and @group.present? %>
+            <% if current_member.has_role? :admin %>
+              <%= link_to medallion.id, medallion_path(medallion) %>,
+            <% end %>
+          <% end %>
           <%= medallion.member.name %>,
           <% if medallion.years > 1 %>
             <%= "#{medallion.years} years, " %>
