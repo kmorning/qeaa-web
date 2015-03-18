@@ -6,6 +6,10 @@ class MedallionPolicy
     @medallion = medallion
   end
 
+  def index?
+    @member.has_role? :admin
+  end
+
   def show?
     @member.has_role? :admin
   end

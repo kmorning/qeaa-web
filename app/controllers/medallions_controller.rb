@@ -6,6 +6,8 @@ class MedallionsController < ApplicationController
   def index
     #@medallions = @group.present? ? @group.medallions : Medallion.all
     if @group.present?
+      authenticate_account!
+      authorize Medallion
       @medallions = @group.medallions
     else
       start_date = DateTime.now
