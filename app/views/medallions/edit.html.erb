@@ -1,0 +1,22 @@
+<% content_for :title do %>Edit Medallion<% end %>
+<div class="row">
+  <div class="large-12 columns">
+    <h3>Add Medallion</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="large-8 columns">
+    <div class="panel">
+     <div class="form">
+       <%= simple_form_for @medallion do |f| %>
+         <%= f.error_notification %>
+         <%= f.association :meeting, collection: @medallion.group.meetings, label_method: :name %>
+         <%= f.association :member, collection: @medallion.group.members, label_method: :name %>
+         <%= f.input :years %>
+         <%= f.input :date_str, label: 'Date' %>
+         <%= f.button :submit %>
+       <% end %>
+     </div>
+    </div>
+  </div>
+</div>

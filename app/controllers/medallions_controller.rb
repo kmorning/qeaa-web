@@ -25,6 +25,11 @@ class MedallionsController < ApplicationController
     @medallion = Medallion.new
   end
 
+  def edit
+    @medallion = Medallion.find(params[:id])
+    authorize @medallion
+  end
+
   def create
     authorize Medallion
     @medallion = Medallion.new(secure_params)
@@ -33,6 +38,17 @@ class MedallionsController < ApplicationController
       redirect_to @group
     else
       render 'new'
+    end
+  end
+
+  def update
+    @medallion = Medallion.find(params[:id])
+    authorize @medallion
+
+    if @medallion.update(secure_params)
+      redirect_to @medallion
+    else
+      render 'edit'
     end
   end
 
