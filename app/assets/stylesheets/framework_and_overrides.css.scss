@@ -1,6 +1,7 @@
 // import the CSS framework
 @import 'settings';
 @import "foundation";
+@import "boxshadow";
 
 // padding for content-columns
 $column-pad: rem-calc(10);
@@ -19,6 +20,7 @@ html {
   @extend .row;
   min-height: 100%;
   background: #FFF;
+  @include box-shadow(0px 0px 5px 0px, rgba(153,153,153,0.5));
 
   // override for the 'Home' navigation link
   .top-bar {
@@ -79,21 +81,6 @@ html {
   padding-right: $column-pad;
 }
 
-@mixin page-wrap {
-  @extend .row;
-  background: #FFF;
-  //background: #ECECEC;
-  height: 1200px;
-  //height: 1055px;
-  -webkit-box-shadow: 0 0 5px rgba(153,153,153,0.5);
-  -moz-box-shadow: 0 0 5px rgba(153,153,153,0.5);
-  box-shadow: 0 0 5px rgba(153,153,153,0.5);
-}
-
-.wrapper {
-  @include page-wrap;
-}
-
 .content-columns {
   @include columns-padded;
 }
@@ -111,16 +98,6 @@ html {
   background-color: #FFF;
 }
 
-
-// Margin background
-//body {
-//  font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
-//  background-color:#00537c;
-//  color: #000;
-//background-color: #e8f4d6;
-//background-color: #e1efcb;
-//}
-
 .home-orbit-container {
   @include twelve-columns;
   @include orbit-bullets-bottom-right;
@@ -131,12 +108,6 @@ html {
   -moz-border-radius: $radius;
   -ms-border-radius: $radius;
   border-radius: $radius;
-}
-
-@mixin box-shadow($opts, $color) {
-  -webkit-box-shadow: $opts $color;
-  -moz-box-shadow: $opts $color;
-  box-shadow: $opts $color;
 }
 
 // Panels
