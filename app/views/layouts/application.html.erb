@@ -13,18 +13,22 @@
     <%= favicon_link_tag image_path('favicon.ico') %>
   </head>
   <body <%= "id=#{params[:id]}" if params[:id].present? %> class="<%= controller_name %> <%= action_name %>">
-    <div class="wrapper">
+    <div id="wrap">
       <header>
         <%= render 'layouts/header' %>
         <%# render 'layouts/test_header' %>
       </header>
       <main role="main">
+        <div id="main">
          <%= render 'layouts/messages' %>
          <%= yield %>
+       </div>
       </main>
     </div>
     <footer>
-      <%= render 'layouts/footer' %>
+      <div id="footer">
+        <%= render 'layouts/footer' %>
+      </div>
     </footer>
 
   </body>
