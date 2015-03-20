@@ -19,27 +19,34 @@
         </div>
       </div>
       <div class="row">
-        <div class="small-12 medium-6 large-4 content-columns">
-          <ul>
-            <li><%= link_to "Area 83", "http://area83aa.org/",  target: "_blank" %></li>
-            <li><%= link_to "District 30 Quinte West", "http://www.quintewestaa.org",  target: "_blank" %></li>
-          </ul>
-        </div>
-        <div class="small-12 medium-6 large-4 content-columns">
-          <ul>
-            <li><%= link_to "Area 83", "http://area83aa.org/",  target: "_blank" %></li>
-            <li><%= link_to "District 30 Quinte West",  target: "_blank" %></li>
-          </ul>
-        </div>
-        <div class="small-12 medium-6 large-4 content-columns">
-          <ul>
-            <li><%= link_to "Area 83", "http://area83aa.org/",  target: "_blank" %></li>
-            <li><%= link_to "District 30 Quinte West",  target: "_blank" %></li>
-          </ul>
-        </div>
-
+        <ul>
+          <% area83_site_links.each do |k,v| %>
+            <div class="small-12 medium-6 large-4 content-columns">
+                <li><%= link_to k, v,  target: "_blank" %></li>
+            </div>
+          <% end %>
+        </ul>
       </div>
     </div>
+    <div class="text-panel">
+      <div class="row">
+        <div class="full-centered">
+          <div>
+            <h4><strong>A.A. Worldwide Sites</strong></h4>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <ul>
+          <% aa_site_links.each do |k,v| %>
+            <div class="small-12 medium-6 large-4 content-columns">
+                <li><%= link_to k, v,  target: "_blank" %></li>
+            </div>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
   </div>
 </div>
 
