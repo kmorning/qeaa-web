@@ -22,4 +22,11 @@ module SitesHelper
       "AA Grapevine" => "http://www.aagrapevine.org/"
     }
   end
+
+  def sites_get_class(key, links)
+    last_key = links.to_a.last[0]
+    class_str = "small-12 medium-6 large-4 content-columns"
+    class_str += " end" if key == last_key
+    return class_str
+  end
 end

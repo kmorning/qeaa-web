@@ -7,9 +7,9 @@
   <div class="small-12 content-columns">
     <div class="text-panel">
       <div class="row">
-        <div class="full-centered">
+        <div class="small-12 content-columns">
           <div>
-            <h4><strong>Links to other A.A. sites in Area 83</strong></h4>
+            <h5><strong>Other A.A. sites in Area 83</strong></h5>
           </div>
         </div>
       </div>
@@ -21,7 +21,7 @@
       <div class="row">
         <ul>
           <% area83_site_links.each do |k,v| %>
-            <div class="small-12 medium-6 large-4 content-columns">
+            <div class="<%= sites_get_class(k,area83_site_links) %>">
                 <li><%= link_to k, v,  target: "_blank" %></li>
             </div>
           <% end %>
@@ -30,16 +30,16 @@
     </div>
     <div class="text-panel">
       <div class="row">
-        <div class="full-centered">
+        <div class="small-12 content-columns">
           <div>
-            <h4><strong>A.A. Worldwide Sites</strong></h4>
+            <h5><strong>A.A. Worldwide Sites</strong></h5>
           </div>
         </div>
       </div>
       <div class="row">
         <ul>
           <% aa_site_links.each do |k,v| %>
-            <div class="small-12 medium-6 large-4 content-columns">
+            <div class="<%= sites_get_class(k,aa_site_links) %>">
                 <li><%= link_to k, v,  target: "_blank" %></li>
             </div>
           <% end %>
