@@ -28,25 +28,45 @@
         </ul>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 medium-6 content-columns">
     <div class="text-panel">
       <div class="row">
         <div class="small-12 content-columns">
           <div>
-            <h5><strong>A.A. Worldwide Sites</strong></h5>
+            <h5><strong>World Service Organization</strong></h5>
           </div>
         </div>
       </div>
+
       <div class="row">
-        <ul>
-          <% aa_site_links.each do |k,v| %>
-            <div class="<%= sites_get_class(k,aa_site_links) %>">
-                <li><%= link_to k, v,  target: "_blank" %></li>
-            </div>
-          <% end %>
-        </ul>
+        <div class="small-12 content-columns">
+          <%= link_to image_tag('en_problemdrinkers_anim.gif',  alt: 'World Service Organization'), 'http://www.aa.org/', target: '_blank' %>
+        </div>
       </div>
     </div>
-
   </div>
+
+  <div class="small-12 medium-6 content-columns">
+    <div class="text-panel">
+      <div class="row">
+        <div class="small-12 content-columns">
+          <div>
+            <h5><strong>AA Grapevine</strong></h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-12 content-columns">
+          <%= link_to 'www.aagrapevine.org', 'http://www.aagrapevine.org/', target: '_blank' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
