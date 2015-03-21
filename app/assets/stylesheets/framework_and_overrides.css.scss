@@ -196,6 +196,12 @@ $panel-box-shadow-color: rgba(50, 50, 50, 0.75);
   font-size: rem-calc(10);
 }
 
+.graphic-credit {
+  font-style: italic;
+  font-size: rem-calc(10);
+  line-height: 0px;
+}
+
 // Text no break
 .nobr {
   white-space:nowrap;
