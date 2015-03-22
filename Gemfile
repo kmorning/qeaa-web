@@ -76,6 +76,8 @@ gem 'kaminari'
 gem 'mail_form'
 # Geo Coding
 gem 'geocoder'
+# Google Maps
+gem 'gmaps4rails'
 
 ###############################################################
 #
