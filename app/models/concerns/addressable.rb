@@ -30,7 +30,7 @@ module Addressable
   end
 
   def address_changed?
-    self.street_changed? and self.city_changed? or self.province_changed?
+    self.street_changed? or self.city_changed? or self.province_changed?
   end
 
   def marker
