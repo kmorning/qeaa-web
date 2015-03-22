@@ -24,6 +24,7 @@
   <% if current_member %>
     <% if current_member.has_role? :admin %>
       <%= link_to 'Edit', edit_meeting_path(@meeting), class: "button" %>
+      <%= link_to 'Delete', meeting_path(@meeting), class: "button", method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
   <% end %>
 </div>

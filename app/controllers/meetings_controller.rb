@@ -41,6 +41,15 @@ class MeetingsController < ApplicationController
     end
   end
 
+  def destroy
+    @meeting = Meeting.find(params[:id])
+    authorize @meeting
+
+    @meeting.destroy
+
+    redirect_to meetings_path
+  end
+
   def index
     @meetings = Meeting.order(:weekday, :time).page params[:page]
     @meetings = Meeting.send(params[:scope]).order(:weekday, :time).page params[:page] if params[:scope].present?
@@ -58,7 +67,7 @@ class MeetingsController < ApplicationController
   end
 
   def secure_update_params
-    params.require(:meeting).permit(:name, :facility, :street, :city,
+    params.require(:meeting).permit(:name, :facility, :street, :city, :province,
                                     :weekday, :time_str, :category, :format,
                                     :accessible, :notice, :frequency)
   end

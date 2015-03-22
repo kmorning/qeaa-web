@@ -24,5 +24,9 @@ class MeetingPolicy
     @member.has_role? :admin
   end
 
+  def destroy?
+    @member.has_role? :admin
+  end
+
 end
 
