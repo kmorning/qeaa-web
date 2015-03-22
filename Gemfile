@@ -74,6 +74,8 @@ gem 'pundit'
 gem 'kaminari'
 # Mail form
 gem 'mail_form'
+# Geo Coding
+gem 'geocoder'
 
 ###############################################################
 #

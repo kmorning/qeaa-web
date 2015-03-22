@@ -85,6 +85,7 @@ GEM
     foundation-rails (5.4.5.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
+    geocoder (1.2.8)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
     high_voltage (2.2.1)
@@ -211,6 +212,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   foundation-rails (= 5.4.5.0)
+  geocoder
   high_voltage
   jbuilder (~> 2.0)
   jquery-rails
