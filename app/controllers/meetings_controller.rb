@@ -6,6 +6,7 @@ class MeetingsController < ApplicationController
   def new
     authorize Meeting
     @meeting = Meeting.new
+    @meeting.province = :on
   end
 
   def edit
@@ -52,8 +53,8 @@ class MeetingsController < ApplicationController
   private
   def secure_params
     params.require(:meeting).permit(:group_id, :name, :facility, :street, :city,
-                                    :weekday, :time_str, :category, :format, 
-                                    :accessible, :notice, :frequency)
+                                    :province, :weekday, :time_str, :category,
+                                    :format, :accessible, :notice, :frequency)
   end
 
   def secure_update_params
