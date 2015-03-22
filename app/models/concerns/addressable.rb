@@ -32,5 +32,12 @@ module Addressable
   def address_changed?
     self.street_changed? and self.city_changed? or self.province_changed?
   end
+
+  def marker
+    {
+      lat: self.latitude,
+      lng: self.longitude
+    }
+  end
 end
 
