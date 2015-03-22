@@ -27,8 +27,8 @@
 
 <div class="row">
   <div class="large-12 columns">
-    <div style='width: 800px;'>
-      <div id="map" style='width: 800px; height: 400px;'></div>
+    <div>
+      <div id="map"></div>
     </div>
   </div>
 </div>
@@ -49,6 +49,7 @@ handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     marker = handler.addMarker(<%= raw @meeting.marker.to_json %>);
     handler.map.centerOn(marker);
+    handler.getMap().setZoom(12);
 });
 </script>
 
