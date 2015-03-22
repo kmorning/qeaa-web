@@ -1,4 +1,6 @@
 class Meeting < ActiveRecord::Base
+  include Addressable
+
   belongs_to :group, inverse_of: :meetings
 
   serialize :time, Tod::TimeOfDay
