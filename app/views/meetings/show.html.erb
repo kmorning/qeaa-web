@@ -4,27 +4,40 @@
   <div class="small-12 content-columns">
     <div class="text-panel">
       <div class="row">
-        <div class="small-12 content-columns">
+        <div class="small-12 content-columns meeting-detail">
           <h3><%= @meeting.name %></h3>
-          <p>
-            <%= @meeting.weekday.titleize %>
-            <br>
+          <div>
+            <%= @meeting.weekday.titleize %>, 
             <%= @meeting.time.strftime("%l:%M %p") %>
-            <br>
+          </div>
+          <div>
             <%= @meeting.facility %>
-            <br>
+          </div>
+          <div>
             <%= @meeting.street %>
-            <br>
+          </div>
+          <div>
             <%= @meeting.city %>
-            <br>
+          </div>
+          <div>
             <strong>Type: </strong><%= @meeting.category.titleize %>
-            <br>
-            <strong>Format: </strong><%= @meeting.format.titleize unless @meeting.format.nil?%>
-        
-           </p>
+          </div>
+          <% if @meeting.format %>
+            <div>
+              <strong>Format: </strong><%= @meeting.format.titleize %>
+            </div>
+          <% end %>
+          <div>
+            <strong>Wheelchair Access: </strong><%= @meeting.accessible? ? "Yes" : "No" %>
+          </div>
+          <% unless @meeting.notice.blank? %>
+            <div>
+              <strong>Notice:  </strong><%= @meeting.notice %>
+            </div>
+          <% end %>
         </div>
       </div>
-      
+      <br> 
       <div class="row">
         <div class="small-12 columns">
           <div id="map"></div>
