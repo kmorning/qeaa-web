@@ -6,7 +6,7 @@
   handler.buildMap { provider: {}, internal: {id: 'map'}}, ->
     marker = handler.addMarker(mk)
     handler.map.centerOn(marker)
-    handler.getMap().setZoom(14)
+    handler.getMap().setZoom(15)
 
 #ready = ->
 #  is_map_page = $('body').hasClass('meetings') && $('body').hasClass('show')
