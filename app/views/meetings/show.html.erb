@@ -48,13 +48,6 @@
   window.geo_marker = <%= raw @meeting.marker.to_json %>;
 <% end %>
 
-<!--
 <script type="text/javascript">
-handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    marker = handler.addMarker(# raw @meeting.marker.to_json %>);
-    handler.map.centerOn(marker);
-    handler.getMap().setZoom(14);
-});
+buildMap(<%= raw @meeting.marker.to_json %>);
 </script>
--->
