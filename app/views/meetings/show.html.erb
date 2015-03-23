@@ -1,37 +1,41 @@
 <% content_for :title do %><%= @meeting.name %><% end %>
-
+<br>
 <div class="row">
-  <div class="large-12 columns">
-    <h3><%= @meeting.name %></h3>
-    <p>
-      <%= @meeting.weekday.titleize %>
-      <br>
-      <%= @meeting.time.strftime("%l:%M %p") %>
-      <br>
-      <%= @meeting.facility %>
-      <br>
-      <%= @meeting.street %>
-      <br>
-      <%= @meeting.city %>
-      <br>
-      <strong>Type: </strong><%= @meeting.category.titleize %>
-      <br>
-      <strong>Format: </strong><%= @meeting.format.titleize unless @meeting.format.nil?%>
-  
-     </p>
-  </div>
-</div>
-
-<div class="row">
-  <div class="large-12 columns">
-    <div>
-      <div id="map"></div>
+  <div class="small-12 content-columns">
+    <div class="text-panel">
+      <div class="row">
+        <div class="small-12 content-columns">
+          <h3><%= @meeting.name %></h3>
+          <p>
+            <%= @meeting.weekday.titleize %>
+            <br>
+            <%= @meeting.time.strftime("%l:%M %p") %>
+            <br>
+            <%= @meeting.facility %>
+            <br>
+            <%= @meeting.street %>
+            <br>
+            <%= @meeting.city %>
+            <br>
+            <strong>Type: </strong><%= @meeting.category.titleize %>
+            <br>
+            <strong>Format: </strong><%= @meeting.format.titleize unless @meeting.format.nil?%>
+        
+           </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="small-12 columns">
+          <div id="map"></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <%# TODO:  allow group admin to edit. %>
-<div class="large-12 columns">
+<div class="small-12 content-columns">
   <%= link_to "Back", :back, class: "button" %>
   <% if current_member %>
     <% if current_member.has_role? :admin %>
