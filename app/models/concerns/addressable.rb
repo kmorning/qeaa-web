@@ -22,7 +22,11 @@ module Addressable
   end
 
   def address
-    [street, city, province.upcase].compact.join(', ')
+    if postal_code.blank?
+      [street, city, province.upcase].compact.join(', ')
+    else
+      [street, city, province.upcase, postal_code].compact.join(', ')
+    end
   end
 
   def address_present?
@@ -30,7 +34,8 @@ module Addressable
   end
 
   def address_changed?
-    self.street_changed? or self.city_changed? or self.province_changed?
+    self.street_changed? or self.city_changed? or self.province_changed? or
+      self.postal_code_changed?
   end
 
   def marker

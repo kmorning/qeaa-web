@@ -78,6 +78,8 @@ gem 'mail_form'
 gem 'geocoder'
 # Google Maps
 gem 'gmaps4rails'
+# Postal code validation
+#gem 'validates_as_postal_code'
 
 ###############################################################
 #

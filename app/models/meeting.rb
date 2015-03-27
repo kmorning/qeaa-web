@@ -40,6 +40,8 @@ class Meeting < ActiveRecord::Base
   validates_presence_of :facility
   validates_presence_of :street
   validates_presence_of :city
+  #validates_as_postal_code :postal_code, country: "CA", multiline: true, allow_blank: true
+  validates_format_of :postal_code, with: /^\s*[a-ceghj-npr-tvxy]\d[a-ceghj-npr-tv-z](\s)?\d[a-ceghj-npr-tv-z]\d\s*$/i, multiline: true, allow_blank: true
   validates_presence_of :weekday
   validates_presence_of :time_str
   validates_presence_of :category
