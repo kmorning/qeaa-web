@@ -58,10 +58,6 @@
   <% end %>
 </div>
 
-<%= javascript_tag do %>
-  window.geo_marker = <%= raw @meeting.marker.to_json %>;
-<% end %>
-
 <script type="text/javascript">
 buildMap(<%= raw @meeting.marker.to_json %>);
 </script>
