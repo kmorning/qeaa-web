@@ -9,7 +9,7 @@ class Member < ActiveRecord::Base
   acts_as_birthday :birthday
 
   validates :first_name, presence: true
-  validates :last_initial, presence: true, length: { maximum: 1 }
+  #validates :last_initial, presence: true, length: { maximum: 1 }
   validates_associated :group
   validates_format_of :phone, 
     :with => %r{(1)?(?:-)?(?:\(|-)?([\d]{3})(?:\.|\-|\))([\d]{3})(?:\.|\-)([\d]{4})(?: ?x([\d]{3,5}))?}, :allow_blank => true
