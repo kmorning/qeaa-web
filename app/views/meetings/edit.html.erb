@@ -10,6 +10,7 @@
      <div class="form">
        <%= simple_form_for @meeting, method: :patch do |f| %>
          <%= f.error_notification %>
+         <%= f.association :group, :include_blank => "(No Group)" %>
          <%= f.input :name %>
          <%= f.input :facility %>
          <%= f.input :street %>

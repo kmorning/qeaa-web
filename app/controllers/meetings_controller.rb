@@ -68,9 +68,9 @@ class MeetingsController < ApplicationController
   end
 
   def secure_update_params
-    params.require(:meeting).permit(:name, :facility, :street, :city, :province,
-                                    :postal_code, :weekday, :time_str, 
-                                    :category, :format, :accessible, :notice, 
-                                    :frequency)
+    params.require(:meeting).permit(:group_id, :name, :facility, :street, :city,
+                                    :province, :postal_code, :weekday,
+                                    :time_str, :category, :format, :accessible,
+                                    :notice, :frequency)
   end
 end
