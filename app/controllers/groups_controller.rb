@@ -47,7 +47,8 @@ class GroupsController < ApplicationController
 
   def index
     authorize Group
-    @groups = Group.all
+    #@groups = Group.all
+    @groups = Group.order(:name)
   end
 
   def show
