@@ -1,0 +1,23 @@
+<% content_for :title do %>Members<% end %>
+<div class="row">
+  <div class="large-12 columns">
+    <h3>Members</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+    <table>
+      <tr>
+        <th>Member</th>
+        <th>Group</th>
+      </tr>
+
+      <% @members.each do |member| %>
+        <tr>
+          <td><%= link_to member.name, member_path(member) %></td>
+          <td><%= member.group.name %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

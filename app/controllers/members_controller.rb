@@ -38,6 +38,20 @@ class MembersController < ApplicationController
     end
   end
 
+  def index
+    authorize Member
+    #@members = Member.order(:first_name)
+    @members = Member.includes(:group).order("groups.name", :first_name)
+    @members = Member.where(["group_id = :g", {g: params[:scope]}]).order(:first_name) if params[:scope].present?
+  end
+
+  def destroy
+    @member = Member.find(params[:id])
+    authorize @member
+    @member.destroy
+    redirect_to members_path
+  end
+
   def show
     @member = Member.find(params[:id])
     authorize @member

@@ -24,6 +24,14 @@ class MemberPolicy
       @current_member.has_role? :admin
   end
 
+  def index?
+    @current_member.has_role? :admin
+  end
+
+  def destroy?
+    @current_member.has_role? :admin
+  end
+
   def show?
     @member.group_id == @current_member.group_id or
       @current_member.has_role?(:admin)

@@ -15,5 +15,6 @@
 <% if current_member == @member or current_member.has_role? :admin %>
   <div class="large-12 columns">
     <%= link_to 'Edit', edit_member_path(@member), class: "button" %>
+    <%= link_to 'Destroy', member_path(@member), class: "button", method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>
 <% end %>
