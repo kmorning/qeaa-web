@@ -32,6 +32,7 @@ class MembersController < ApplicationController
     authorize @member
 
     if @member.update(secure_update_params)
+      apply_roles
       redirect_to @member
     else
       render 'edit'
@@ -70,6 +71,15 @@ class MembersController < ApplicationController
     params.require(:member).permit(:phone, :birthday_str,
                                   member_emails_attributes: [:id, :email])
   end
+
+  def apply_roles
+    if params[:viewable] == "1"
+      @member.grant(:viewable)
+    elsif params[:viewable] == "0"
+      @member.remove_role(:viewable)
+    end
+  end
+
 
 
 end

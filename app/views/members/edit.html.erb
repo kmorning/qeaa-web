@@ -22,6 +22,14 @@
          <%# f.input :email %>
          <%# f.input :birthday %>
          <%= f.input :birthday_str, label: 'Birthday' %>
+         <fieldset>
+           <legend>Roles</legend>
+           <%= f.label(:viewable) do %>
+             Viewable:
+             <%= hidden_field_tag(:viewable, 0) %>
+             <%= check_box_tag(:viewable, 1, @member.has_role?(:viewable)) %>
+           <% end %>
+         </fieldset>
          <%= f.button :submit %>
        <% end %>
      </div>
