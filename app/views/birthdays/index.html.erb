@@ -16,6 +16,14 @@
           <th>Group</th>
         </tr>
 
+        <%# --- Temp entry for belated birthday ---%>
+        <tr>
+          <td>Joan C</td>
+          <td>39 years</td>
+          <td>February 17</td>
+          <td>Foxboro Friendship Group</td>
+        </tr>
+
         <% @members.each do |member| %>
           <tr>
             <td><%= member.name %></td>
@@ -36,6 +44,14 @@
 
     <%#-------------- Small Displays -----------------%>
     <div class="item-panel-wrapper">
+      <%# --- Temp entry for belated birthday ---%>
+      <div class="item-panel">
+        Joan C, 
+        39 years,
+        February 17 <br/>
+        Foxboro Friendship Group
+      </div>
+
       <% @members.each do |member| %>
         <div class="item-panel">
           <%= member.name %>,
