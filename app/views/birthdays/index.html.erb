@@ -15,43 +15,10 @@
           <th>Date</th>
           <th>Group</th>
         </tr>
-
-        <%# --- Temp entry for belated birthday ---%>
-        <tr>
-          <td>Joan C</td>
-          <td>39 years</td>
-          <td>February 17</td>
-          <td>Foxboro Friendship Group</td>
-        </tr>
-
-        <% @members.each do |member| %>
-          <tr>
-            <td><%= member.name %></td>
-            <td>
-              <% if member.birthday_age_on_next > 1 %>
-                <%= "#{member.birthday_age_on_next} years" %>
-              <% else %>
-                <%= "#{member.birthday_age_on_next} year" %>
-              <% end %>
-            </td>
-            <td><%= member.birthday.to_s(:month_and_day) %></td>
-            <td><%= member.group.name %></td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
-    <%# ----------------------------------------------%>
-
+        
     <%#-------------- Small Displays -----------------%>
     <div class="item-panel-wrapper">
-      <%# --- Temp entry for belated birthday ---%>
-      <div class="item-panel">
-        Joan C, 
-        39 years,
-        February 17 <br/>
-        Foxboro Friendship Group
-      </div>
-
+      
       <% @members.each do |member| %>
         <div class="item-panel">
           <%= member.name %>,
