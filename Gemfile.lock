@@ -73,6 +73,7 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     colorize (0.7.5)
+    decent_exposure (2.3.3)
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -85,13 +86,19 @@ GEM
     foundation-rails (5.4.5.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
+    fullcalendar-rails (2.4.0.0)
+      jquery-rails (>= 3.1.1, < 5.0.0)
+      momentjs-rails (>= 2.9.0)
     geocoder (1.2.8)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
     gmaps4rails (2.1.2)
+    haml (4.0.7)
+      tilt
     high_voltage (2.2.1)
     hike (1.2.3)
     i18n (0.7.0)
+    ice_cube (0.14.0)
     jbuilder (2.2.6)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -102,6 +109,8 @@ GEM
     jquery-turbolinks (2.1.0)
       railties (>= 3.1.0)
       turbolinks
+    jquery-ui-rails (5.0.5)
+      railties (>= 3.2.16)
     json (1.8.1)
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
@@ -116,6 +125,8 @@ GEM
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.0)
+    momentjs-rails (2.11.0)
+      railties (>= 3.1)
     multi_json (1.10.1)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -124,6 +135,8 @@ GEM
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
     pg (0.18.0)
+    polyamorous (1.1.0)
+      activerecord (>= 3.0)
     pundit (0.3.0)
       activesupport (>= 3.0.0)
     quiet_assets (1.1.0)
@@ -182,6 +195,10 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    squeel (1.2.3)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      polyamorous (~> 1.1.0)
     sshkit (1.6.1)
       colorize (>= 0.7.0)
       net-scp (>= 1.1.2)
@@ -189,6 +206,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    time_splitter (1.1.0)
     tod (1.5.0)
     turbolinks (2.5.3)
       coffee-rails
@@ -211,16 +229,22 @@ DEPENDENCIES
   capistrano-rails (~> 1.1.1)
   capistrano-rvm!
   coffee-rails (~> 4.0.0)
+  decent_exposure
   devise
   foundation-rails (= 5.4.5.0)
+  fullcalendar-rails
   geocoder
   gmaps4rails
+  haml
   high_voltage
+  ice_cube
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
+  jquery-ui-rails
   kaminari
   mail_form
+  momentjs-rails
   pg
   pundit
   quiet_assets
@@ -231,6 +255,8 @@ DEPENDENCIES
   seed_dump
   simple_form
   spring
+  squeel
+  time_splitter
   tod
   turbolinks
   uglifier (>= 1.3.0)

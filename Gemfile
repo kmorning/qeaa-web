@@ -24,6 +24,24 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 #gem 'sdoc', '~> 0.4.0',          group: :doc
 
+# Additions for calendar
+# momentum needed by fullcalendar
+gem 'momentjs-rails'
+# Try FullCalendar instead
+gem 'fullcalendar-rails'
+# For repeating event schedules
+gem 'ice_cube'
+# For simpler active record queries
+gem 'squeel'
+# A helper for creating declarative interfaces in controllers
+gem 'decent_exposure'
+# Haml
+gem "haml"
+# User jquery-ui instead for datepicker
+gem 'jquery-ui-rails'
+# Use time splitter with one date field instead
+gem 'time_splitter'
+
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
