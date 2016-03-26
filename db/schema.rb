@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150327213548) do
+ActiveRecord::Schema.define(version: 20160326222347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,33 @@ ActiveRecord::Schema.define(version: 20150327213548) do
 
   add_index "accounts", ["member_id"], name: "index_accounts_on_member_id", using: :btree
   add_index "accounts", ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true, using: :btree
+
+  create_table "event_schedules", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "is_all_day"
+    t.datetime "from"
+    t.datetime "to"
+    t.text     "schedule"
+    t.string   "repeats"
+    t.integer  "repeats_every_n_days"
+    t.integer  "repeats_every_n_weeks"
+    t.integer  "repeats_weekly_each_days_of_the_week_mask"
+    t.integer  "repeats_every_n_months"
+    t.integer  "repeats_monthly"
+    t.integer  "repeats_monthly_each_days_of_the_month_mask"
+    t.integer  "repeats_monthly_on_ordinals_mask"
+    t.integer  "repeats_monthly_on_days_of_the_week_mask"
+    t.integer  "repeats_every_n_years"
+    t.integer  "repeats_yearly_each_months_of_the_year_mask"
+    t.boolean  "repeats_yearly_on"
+    t.integer  "repeats_yearly_on_ordinals_mask"
+    t.integer  "repeats_yearly_on_days_of_the_week_mask"
+    t.string   "repeat_ends"
+    t.date     "repeat_ends_on"
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+  end
 
   create_table "events", force: :cascade do |t|
     t.integer  "group_id"
