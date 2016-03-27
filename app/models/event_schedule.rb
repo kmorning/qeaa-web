@@ -14,6 +14,15 @@ class EventSchedule < ActiveRecord::Base
   validates_presence_of :from
   validates_presence_of :to
 
+  def self.inherited(child)
+    child.instance_eval do
+      def model_name
+        EventSchedule.model_name
+      end
+    end
+    super
+  end
+
   def color
     if calendar.color
       calendar.color
