@@ -14,6 +14,8 @@ class EventSchedule < ActiveRecord::Base
   validates_presence_of :from
   validates_presence_of :to
 
+# TODO: see if this is a better way to handle url helplers
+=begin
   def self.inherited(child)
     child.instance_eval do
       def model_name
@@ -22,6 +24,7 @@ class EventSchedule < ActiveRecord::Base
     end
     super
   end
+=end
 
   def color
     if calendar.color
