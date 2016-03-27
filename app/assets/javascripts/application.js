@@ -22,3 +22,13 @@
 $(function() {
   $(document).foundation();
 });
+
+$(document). on("page:load ready", function(){
+  $("input.datepicker").each(function(input) {
+    $(this).datepicker({
+      dateFormat: "yy-mm-dd",
+      altField: $(this).next(),
+      altFormat: "yy-mm-dd"
+    })
+  })
+})
