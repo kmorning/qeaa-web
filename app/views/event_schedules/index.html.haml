@@ -1,0 +1,9 @@
+= link_to 'New Event Schedule', new_event_schedule_path
+%br
+%br
+%br
+- event_schedule.each do |e|
+  = link_to 'x', event_schedule_path(e), method: :delete, data: { confirm: 'Are you sure you want to remove the event?' }
+  = link_to e.name, edit_event_schedule_path(e)
+  %br
+  %br

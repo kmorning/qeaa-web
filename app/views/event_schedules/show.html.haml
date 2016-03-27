@@ -1,0 +1,26 @@
+.span3.pull-right
+  = link_to 'Back', root_path, :class => 'btn btn-danger'
+  = link_to 'Edit', edit_event_schedule_path(event_schedule), :class => 'btn btn-primary'
+%strong Name:
+= event_schedule.name
+%br
+%strong Description:
+= event_schedule.description
+%br
+%strong From:
+= event_schedule.from.strftime("%Y-%m-%d %H:%M")
+%br
+%strong To:
+= event_schedule.to.strftime("%Y-%m-%d %H:%M")
+%br
+%strong Duration:
+= event_schedule.schedule.duration
+%br
+%strong Schedule:
+= event_schedule.schedule
+%br
+%strong Upcomming Events:
+- event_schedule.schedule.first(5).each do |e|
+  %br
+  = e.to_s
+

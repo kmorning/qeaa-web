@@ -1,0 +1,49 @@
+- start_date = params[:start_date].to_datetime.strftime('%F') if params[:start_date]
+- start_time = params[:start_date].to_datetime.strftime('%I:%M %p') if params[:start_date]
+- end_time = (params[:start_date].to_datetime + 30.minutes).strftime('%I:%M %p') if params[:start_date]
+
+= simple_form_for event_schedule do |f|
+  = f.error_notification
+  .row
+    .large-6.columns
+      = f.input :name
+      = f.input :description
+      -#= f.association :calendar
+    .large-6.columns
+      = f.input :is_all_day
+      - if params[:start_date]
+        = f.input :from_date, as: :datepicker, input_html: {value: "#{start_date}"}
+        .event_time
+          = f.input :from_hour, collection: 0..24
+          = f.input :from_min, collection: [0, 15, 30, 45]
+
+        = f.input :to_date, as: :datepicker, input_html: {value: "#{start_date}"}
+        .event_time
+          = f.input :to_hour, collection: 0..24
+          = f.input :to_min, collection: [0, 15, 30, 45]
+
+      - else
+        = f.input :from_date, as: :datepicker
+        .event_time
+          = f.input :from_hour, collection: 0..24
+          = f.input :from_min, collection: [0, 15, 30, 45]
+
+        = f.input :to_date, as: :datepicker
+        .event_time
+          = f.input :to_hour, collection: 0..24
+          = f.input :to_min, collection: [0, 15, 30, 45]
+
+        = f.input :repeats, collection: EventSchedule::RepeatsOptions
+        = render partial: 'repeats_daily_options', locals: {f: f}
+        = render partial: 'repeats_weekly_options', locals: {f: f}
+        = render partial: 'repeats_monthly_options', locals: {f: f}
+        = render partial: 'repeats_yearly_options', locals: {f: f}
+        #repeats_options.event_option
+          = f.select :repeat_ends, EventSchedule::RepeatEndsOptions
+          #event_schedule_repeat_ends_on
+            = f.date_select :repeat_ends_on, {}, {style: 'width:auto;'}
+
+    .row
+      .large-12.columns
+        = f.button :submit
+
