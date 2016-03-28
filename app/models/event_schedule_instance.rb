@@ -5,15 +5,15 @@ class EventScheduleInstance
   delegate :url_helpers, to: 'Rails.application.routes'
   attr_accessor :title, :start, :end, :allDay, :event_id, :color, :url, :background_color, :textColor
 
-  def self.occurrences_between(begin_date,end_date, types = '')
+  def self.occurrences_between(begin_date,end_date )
     # Using Squeel
     # line 1 = Event doesn't repeat, but ends in window
     # line 2 = Event doesn't repeat, but starts in window
     # line 2 = Event doesn't repeat, but starts before and ends after
     # line 4 = Event starts before our end date and repeats until a certain point of time, and that point of time after our begin date
     # line 5 = Event repeats indefinitely, then all we care about is that it has started at somepoint in the last
-    if !types.empty?
-      results = EventSchedule.where{
+    if !calendar_ids.empty?
+      results = CalendarEvent.where{
         (
           (repeats == 'never') &
           (from >= begin_date) &
@@ -36,9 +36,9 @@ class EventScheduleInstance
           (repeat_ends == 'never') &
           (from <= end_date)
         )
-      }.where(:type => types.split(',').reject{ |c| c.empty? }.uniq)
+      }.where(:calendar_id => calendar_ids.split(',').reject{ |c| c.empty? }.uniq)
     else
-     results = EventSchedule.where{
+     results = CalendarEvent.where{
        (
          (repeats == 'never') &
          (from >= begin_date) &
@@ -65,10 +65,10 @@ class EventScheduleInstance
     end
     results.map { |event|
       event.schedule.occurrences_between(begin_date,end_date).map { |date|
-        i = EventScheduleInstance.new()
+        i = CalendarEventInstance.new()
         i.title = event.name
         i.color = event.calendar.color
-        i.url = Rails.application.routes.url_helpers.event_schedule_path(event)
+        i.url = Rails.application.routes.url_helpers.calendar_event_path(event)
         i.start = date
         i.end = date + event.duration.seconds
         i.allDay = event.is_all_day
@@ -78,9 +78,5 @@ class EventScheduleInstance
       }
     }.flatten.sort! {|x,y| x.start <=> y.start }
   end
-
-  # TODO: create an actual event that goes to the db
-  #def create_event
-  #end
 
 end
