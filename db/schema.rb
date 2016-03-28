@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328163752) do
+ActiveRecord::Schema.define(version: 20160328222503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,9 +39,12 @@ ActiveRecord::Schema.define(version: 20160328163752) do
     t.datetime "start"
     t.datetime "end"
     t.boolean  "allDay"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "event_schedule_id"
   end
+
+  add_index "corrections_events", ["event_schedule_id"], name: "index_corrections_events_on_event_schedule_id", using: :btree
 
   create_table "event_schedules", force: :cascade do |t|
     t.string   "name"
@@ -166,6 +169,7 @@ ActiveRecord::Schema.define(version: 20160328163752) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
+  add_foreign_key "corrections_events", "event_schedules"
   add_foreign_key "events", "groups"
   add_foreign_key "medallions", "meetings"
   add_foreign_key "medallions", "members"

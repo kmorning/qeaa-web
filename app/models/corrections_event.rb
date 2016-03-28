@@ -2,7 +2,7 @@ class CorrectionsEvent < ActiveRecord::Base
   include Rails.application.routes.url_helpers
   extend Rails.application.routes.url_helpers
 
-  belongs_to :corrections_schedule, inverse_of: :corrections_events
+  belongs_to :event_schedule
 
   attr_accessor :color, :url, :textColor
 
