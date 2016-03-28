@@ -51,7 +51,7 @@ class CorrectionsEvent < ActiveRecord::Base
         i.start = date
         i.end = date + event.duration.seconds
         i.allDay = event.is_all_day
-        #i.event_id = event.id
+        i.event_schedule_id = event.id
         i.textColor = 'black'
         i
       }
