@@ -72,14 +72,14 @@ class EventSchedulesController < ApplicationController
                                             {repeats_weekly_each_days_of_the_week: []},
                                             :repeats_every_n_months,
                                             :repeats_monthly,
-                                            :repeats_monthly_each_days_of_the_month,
-                                            :repeats_monthly_on_days_of_the_week,
-                                            :repeats_monthly_on_ordinals,
+                                            {repeats_monthly_each_days_of_the_month: []},
+                                            {repeats_monthly_on_days_of_the_week: []},
+                                            {repeats_monthly_on_ordinals: []},
                                             :repeats_every_n_years,
-                                            :repeats_yearly_each_months_of_the_year,
+                                            {repeats_yearly_each_months_of_the_year: []},
                                             :repeats_yearly_on,
-                                            :repeats_yearly_on_days_of_the_week,
-                                            :repeats_yearly_on_ordinals,
+                                            {repeats_yearly_on_days_of_the_week: []},
+                                            {repeats_yearly_on_ordinals: []},
                                             :name, :description, :type)
   end
 end
