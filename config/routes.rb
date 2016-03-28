@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :corrections_events
+
   devise_for :accounts,
     :controllers => { :registrations => "registrations" }
   resources :meetings
