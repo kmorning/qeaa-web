@@ -5,11 +5,11 @@ class EventSchedulesController < ApplicationController
     if params[:action] == 'new'
       type_class.new
     elsif params[:action] == 'create'
-      if params[:event_schedule][:type]
-        params[:event_schedule][:type].constantize.new(event_schedule_params)
-      else
-        EventSchedule.new(event_schedule_params)
-      end
+      #if params[:event_schedule][:type]
+      #  params[:event_schedule][:type].constantize.new(event_schedule_params)
+      #else
+      EventSchedule.new(event_schedule_params)
+      #end
     elsif params[:action] == 'show' || params[:action] == 'edit'
       EventSchedule.find(params[:id])
     end
