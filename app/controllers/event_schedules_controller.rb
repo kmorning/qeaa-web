@@ -1,5 +1,5 @@
 class EventSchedulesController < ApplicationController
-  expose(:event_schedules){ EventSchedule.all }
+  expose(:event_schedules){ type_class.all }
   #expose(:event_schedule, attributes: :event_schedule_params)
   expose(:event_schedule) {
     if params[:action] == 'new'
@@ -57,7 +57,7 @@ class EventSchedulesController < ApplicationController
 
   private
   def type_class
-    type = params[:type]# ? params[:type] : 'EventSchedule'
+    type = params[:type] ? params[:type] : 'EventSchedule'
     type.constantize
   end
 
