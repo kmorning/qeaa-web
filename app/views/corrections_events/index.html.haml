@@ -1,0 +1,10 @@
+-content_for :title do
+  District 34 - Corrections Events
+%br
+.row
+  .large-12.content-columns
+    %h4
+      Currently:
+      = Time.now.strftime("%v %r")
+#calendar{:style => 'margin:1em 0;'}
+

@@ -16,6 +16,8 @@
 //= require jquery-ui
 //= require turbolinks
 //= require foundation
+//= require moment
+//= require fullcalendar
 //= require underscore-min
 //= require gmaps/google
 //= require_tree .
