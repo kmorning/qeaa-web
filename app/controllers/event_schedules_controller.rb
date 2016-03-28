@@ -51,8 +51,11 @@ class EventSchedulesController < ApplicationController
     end
   end
   def destroy
+    event_schedule = EventSchedule.find(params[:id])
+    type = event_schedule.type ? event_schedule.type : 'EventSchedule'
     event_schedule.destroy
-    redirect_to event_schedules_path
+    #redirect_to event_schedules_path
+    redirect_to controller: 'event_schedules', type: type
   end
 
   private
