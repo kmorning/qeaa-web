@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources "contacts", only: [:new, :create]
 
   resources :event_schedules
+  resources :corrections_schedules, controller: 'event_schedules', type: 'CorrectionsSchedule'
 
   # Set high_voltage home page as root
   HighVoltage.configure do |config|

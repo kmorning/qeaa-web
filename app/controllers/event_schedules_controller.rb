@@ -1,6 +1,19 @@
 class EventSchedulesController < ApplicationController
   expose(:event_schedules){ EventSchedule.all }
-  expose(:event_schedule, attributes: :event_schedule_params)#{
+  #expose(:event_schedule, attributes: :event_schedule_params)
+  expose(:event_schedule) {
+    if params[:action] == 'new'
+      type_class.new
+    elsif params[:action] == 'create'
+      if params[:event_schedule][:type]
+        params[:event_schedule][:type].constantize.new(event_schedule_params)
+      else
+        EventSchedule.new(event_schedule_params)
+      end
+    elsif params[:action] == 'show' || params[:action] == 'edit'
+      EventSchedule.find(params[:id])
+    end
+  }
 
   def create
     if params[:event_schedule][:from_date].empty?
@@ -43,6 +56,11 @@ class EventSchedulesController < ApplicationController
   end
 
   private
+  def type_class
+    type = params[:type]# ? params[:type] : 'EventSchedule'
+    type.constantize
+  end
+
   def event_schedule_params
     params.require(:event_schedule).permit(:from_date, :from_time, :from_hour,
                                            :from_min, :to_date, :to_hour,
@@ -62,6 +80,6 @@ class EventSchedulesController < ApplicationController
                                             :repeats_yearly_on,
                                             :repeats_yearly_on_days_of_the_week,
                                             :repeats_yearly_on_ordinals,
-                                            :name, :description)
+                                            :name, :description, :type)
   end
 end

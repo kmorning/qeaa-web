@@ -8,6 +8,7 @@
     .large-6.columns
       = f.input :name
       = f.input :description
+      = f.input :type, as: :hidden
       -#= f.association :calendar
     .large-6.columns
       = f.input :is_all_day
