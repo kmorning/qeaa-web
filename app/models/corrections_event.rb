@@ -4,7 +4,7 @@ class CorrectionsEvent < ActiveRecord::Base
 
   belongs_to :corrections_schedule, inverse_of: :corrections_events
 
-  attr_accessor :color :url :textColor
+  attr_accessor :color, :url, :textColor
 
   def self.occurrences_between(begin_date,end_date)
     # Generate scheduled events that are not assigned and therefore not in db
@@ -44,8 +44,10 @@ class CorrectionsEvent < ActiveRecord::Base
       event.schedule.occurrences_between(begin_date,end_date).map { |date|
         i = CorrectionsEvent.new()
         i.title = event.name
-        i.color = event.calendar.color
-        i.url = Rails.application.routes.url_helpers.calendar_event_path(event)
+        # FIXME: get color form schedule
+        i.color = 'blue'
+        #i.color = event.calendar.color
+        i.url = Rails.application.routes.url_helpers.corrections_schedule_path(event)
         i.start = date
         i.end = date + event.duration.seconds
         i.allDay = event.is_all_day
@@ -54,6 +56,13 @@ class CorrectionsEvent < ActiveRecord::Base
         i
       }
     }.flatten.sort! {|x,y| x.start <=> y.start }
+  end
+
+  # Support my "virtual" attributes when converting to json
+  def as_json options=nil
+    options ||= {}
+    options[:methods] = ((options[:methods] || []) + [:color, :url, :textColor])
+    super options
   end
 
 end
