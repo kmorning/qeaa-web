@@ -42,10 +42,13 @@ class EventSchedulesController < ApplicationController
     end
   end
   def update
+    event_schedule = EventSchedule.find(params[:id])
+    event_schedule.assign_attributes(event_schedule_params)
     event_schedule.schedule = event_schedule.create_schedule
     if event_schedule.save
       flash[:notice] = 'Event Schedule Updated'
-      redirect_to root_path
+      type = event_schedule.type ? event_schedule.type : 'EventSchedule'
+      redirect_to controller: 'event_schedules', type: type
     else
       render :edit
     end
