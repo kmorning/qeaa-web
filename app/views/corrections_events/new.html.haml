@@ -1,0 +1,15 @@
+-content_for :title do
+  Corrections Event
+
+.row
+  .large-8.columns
+    .form
+      =simple_form_for @event do |f|
+        =f.error_notification
+        =f.association :event_schedule
+        =f.input :title
+        =f.input :start
+        =f.input :end
+        =f.input :allDay
+        =f.button :submit
+
