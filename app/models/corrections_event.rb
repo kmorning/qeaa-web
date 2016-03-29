@@ -63,6 +63,8 @@ class CorrectionsEvent < ActiveRecord::Base
   # Support my "virtual" attributes when converting to json
   def as_json options=nil
     options ||= {}
+    # TODO: exclude attributes
+    # options[:except] = ((options[:except] || []) + [:id])
     options[:methods] = ((options[:methods] || []) + [:color, :url, :textColor])
     super options
   end
