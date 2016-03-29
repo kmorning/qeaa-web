@@ -47,12 +47,14 @@ class CorrectionsEvent < ActiveRecord::Base
         # FIXME: get color form schedule
         i.color = 'blue'
         #i.color = event.calendar.color
-        i.url = Rails.application.routes.url_helpers.corrections_schedule_path(event)
+        #i.url = Rails.application.routes.url_helpers.corrections_schedule_path(event)
         i.start = date
         i.end = date + event.duration.seconds
         i.allDay = event.is_all_day
         i.event_schedule_id = event.id
         i.textColor = 'black'
+        i.url = Rails.application.routes.url_helpers.new_corrections_event_path(event: {title: i.title, start: i.start, end: i.end, allDay: i.allDay, event_schedule_id: i.event_schedule_id})
+
         i
       }
     }.flatten.sort! {|x,y| x.start <=> y.start }

@@ -7,4 +7,17 @@ class CorrectionsEventsController < ApplicationController
       format.json { render json: @events.to_json(:methods => [:color]) }
     end
   end
+
+  def new
+    if params[:event]
+      @event = CorrectionsEvent.new(event_params)
+    else
+      @event = CorrectionsEvent.new
+    end
+  end
+
+  private
+  def event_params
+    params.require(:event).permit(:title, :start, :end, :allDay, :event_schedule_id)
+  end
 end
