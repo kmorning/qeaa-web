@@ -58,7 +58,7 @@ class CorrectionsEvent < ActiveRecord::Base
         i.allDay = event.is_all_day
         i.event_schedule_id = event.id
         i.textColor = 'black'
-        i.url = Rails.application.routes.url_helpers.new_corrections_event_path(event: {title: i.title, start: i.start, end: i.end, allDay: i.allDay, event_schedule_id: i.event_schedule_id})
+        i.url = Rails.application.routes.url_helpers.new_corrections_event_path(corrections_event: {title: i.title, start: i.start, end: i.end, allDay: i.allDay, event_schedule_id: i.event_schedule_id})
 
         i
       }

@@ -4,20 +4,20 @@
 .row
   .large-8.columns
     Title:
-    = @event.title
+    = @corrections_event.title
     .br
     Start:
-    = @event.start.strftime("%v %r")
+    = @corrections_event.start.strftime("%v %r")
     .br
     End:
-    = @event.end.strftime("%v %r")
+    = @corrections_event.end.strftime("%v %r")
     .br
     All Day:
-    = @event.allDay
+    = @corrections_event.allDay
     .br
 
     .form
-      =simple_form_for @event do |f|
+      =simple_form_for @corrections_event do |f|
         =f.error_notification
         =f.association :event_schedule, as: :hidden
         =f.input :title, as: :hidden
