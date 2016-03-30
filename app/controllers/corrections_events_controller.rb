@@ -20,6 +20,7 @@ class CorrectionsEventsController < ApplicationController
     @corrections_event = CorrectionsEvent.new(event_params)
 
     if @corrections_event.save
+      # TODO set correct path
       redirect_to corrections_event_path
     else
       render new
