@@ -6,6 +6,11 @@ class CorrectionsEvent < ActiveRecord::Base
 
   attr_accessor :color, :url, :textColor
 
+  after_save do
+    event_schedule.schedule.add_exception_time(start)
+    event_schedule.save
+  end
+
   def self.occurrences_between(begin_date,end_date)
     # Generate scheduled events that are not assigned and therefore not in db
     # Using Squeel
