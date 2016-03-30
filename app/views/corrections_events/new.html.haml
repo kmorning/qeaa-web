@@ -3,13 +3,26 @@
 
 .row
   .large-8.columns
+    Title:
+    = @event.title
+    .br
+    Start:
+    = @event.start.strftime("%v %r")
+    .br
+    End:
+    = @event.end.strftime("%v %r")
+    .br
+    All Day:
+    = @event.allDay
+    .br
+
     .form
       =simple_form_for @event do |f|
         =f.error_notification
-        =f.association :event_schedule
-        =f.input :title
-        =f.input :start
-        =f.input :end
-        =f.input :allDay
+        =f.association :event_schedule, as: :hidden
+        =f.input :title, as: :hidden
+        =f.input :start, as: :hidden
+        =f.input :end, as: :hidden
+        =f.input :allDay, as: :hidden
         =f.button :submit
 
