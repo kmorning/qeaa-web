@@ -16,6 +16,16 @@ class CorrectionsEventsController < ApplicationController
     end
   end
 
+  def create
+    @event = CorrectionsEvent.new(event_params)
+
+    if @event.save
+      redirect_to corrections_event_path
+    else
+      render new
+    end
+  end
+
   private
   def event_params
     params.require(:event).permit(:title, :start, :end, :allDay, :event_schedule_id)
