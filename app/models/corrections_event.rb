@@ -45,24 +45,46 @@ class CorrectionsEvent < ActiveRecord::Base
       )
     }
 
-    results.map { |event|
+    vevents = results.map { |event|
       event.schedule.occurrences_between(begin_date,end_date).map { |date|
         i = CorrectionsEvent.new()
         i.title = event.name
         # FIXME: get color form schedule
-        i.color = 'blue'
+        i.color = 'lightblue'
         #i.color = event.calendar.color
         #i.url = Rails.application.routes.url_helpers.corrections_schedule_path(event)
-        i.start = date
-        i.end = date + event.duration.seconds
+        i.from = date
+        i.to = date + event.duration.seconds
         i.allDay = event.is_all_day
         i.event_schedule_id = event.id
         i.textColor = 'black'
-        i.url = Rails.application.routes.url_helpers.new_corrections_event_path(corrections_event: {title: i.title, start: i.start, end: i.end, allDay: i.allDay, event_schedule_id: i.event_schedule_id})
+        i.url = Rails.application.routes.url_helpers.new_corrections_event_path(corrections_event: {title: i.title, from: i.from, to: i.to, allDay: i.allDay, event_schedule_id: i.event_schedule_id})
 
         i
       }
-    }.flatten.sort! {|x,y| x.start <=> y.start }
+    }
+    results = CorrectionsEvent.where{
+      (
+        (from >= begin_date) &
+        (from <= end_date)
+      ) | (
+        (to >= begin_date) &
+        (to <= end_date)
+      ) | (
+        (from <= begin_date) &
+        (to >= end_date)
+      )
+    }
+
+    events = results.map { |event|
+      event.color = 'blue'
+      event.textColor = 'black'
+      event.url = Rails.application.routes.url_helpers.corrections_events_path(event.id)
+      event
+    }
+
+    vevents.push(*events).flatten.sort! {|x,y| x.to <=> y.to }
+    #vevents.flatten.sort! {|x,y| x.to <=> y.to }
   end
 
   # Support my "virtual" attributes when converting to json
@@ -71,7 +93,10 @@ class CorrectionsEvent < ActiveRecord::Base
     # TODO: exclude attributes
     # options[:except] = ((options[:except] || []) + [:id])
     options[:methods] = ((options[:methods] || []) + [:color, :url, :textColor])
-    super options
+    super(options).tap { |hash| 
+      hash["start"] = hash.delete "from" 
+      hash["end"] = hash.delete "to"
+    }
   end
 
 end
