@@ -1,10 +1,18 @@
 class EventSchedulesController < ApplicationController
-  expose(:event_schedules){ type_class.all }
+  before_filter :authenticate_account!
+  after_action :verify_authorized
+
+  expose(:event_schedules){ 
+    authorize EventSchedule
+    type_class.all 
+  }
   #expose(:event_schedule, attributes: :event_schedule_params)
   expose(:event_schedule) {
     if params[:action] == 'new'
+      authorize EventSchedule
       type_class.new
     elsif params[:action] == 'create'
+      authorize EventSchedule
       #if params[:event_schedule][:type]
       #  params[:event_schedule][:type].constantize.new(event_schedule_params)
       #else
@@ -43,6 +51,7 @@ class EventSchedulesController < ApplicationController
   end
   def update
     event_schedule = EventSchedule.find(params[:id])
+    authorize event_schedule
     event_schedule.assign_attributes(event_schedule_params)
     event_schedule.schedule = event_schedule.create_schedule
     if event_schedule.save
@@ -55,6 +64,7 @@ class EventSchedulesController < ApplicationController
   end
   def destroy
     event_schedule = EventSchedule.find(params[:id])
+    authorize event_schedule
     type = event_schedule.type ? event_schedule.type : 'EventSchedule'
     event_schedule.destroy
     #redirect_to event_schedules_path

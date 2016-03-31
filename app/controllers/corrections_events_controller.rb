@@ -1,5 +1,9 @@
 class CorrectionsEventsController < ApplicationController
+  before_filter :authenticate_account!
+  after_action :verify_authorized
+
   def index
+    authorize CorrectionsEvent
     @corrections_events = CorrectionsEvent.occurrences_between(Date.today - 1.year,Date.today + 1.year)
 
     respond_to do |format|
@@ -9,6 +13,7 @@ class CorrectionsEventsController < ApplicationController
   end
 
   def new
+    authorize CorrectionsEvent
     if params[:corrections_event]
       @corrections_event = CorrectionsEvent.new(event_params)
     else
@@ -17,6 +22,7 @@ class CorrectionsEventsController < ApplicationController
   end
 
   def create
+    authorize CorrectionsEvent
     @corrections_event = CorrectionsEvent.new(event_params)
 
     if @corrections_event.save
