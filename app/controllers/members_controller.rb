@@ -68,8 +68,9 @@ class MembersController < ApplicationController
   # This should disallow members from changing group or name
   # TODO:  Allow admin to change group or name and change/add role.
   def secure_update_params
-    params.require(:member).permit(:phone, :birthday_str,
-                                  member_emails_attributes: [:id, :email])
+    params.require(:member).permit(:first_name, :last_initial, :phone, 
+                                   :birthday_str, 
+                                   member_emails_attributes: [:id, :email])
   end
 
   def apply_roles
