@@ -11,8 +11,10 @@
        <%= simple_form_for @member, method: :patch do |f| %>
          <%= f.error_notification %>
          <%# TODO: enforce members can't change their name %>
-         <%# f.input :first_name %>
-         <%# f.input :last_initial %>
+         <% if current_member.has_role? :admin %>
+           <%= f.input :first_name %>
+           <%= f.input :last_initial %>
+         <% end%>
          <%# TODO: Enforce members can't change their group %> 
          <%# f.association :group %>
          <%= f.input :phone %>
