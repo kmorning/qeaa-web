@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :members
 
-  resources :medallions, only: [:index, :show, :edit, :update]
+  resources :medallions, only: [:index, :show, :edit, :update, :destroy]
 
   resources :groups do
     resources :medallions
