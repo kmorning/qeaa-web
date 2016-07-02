@@ -58,7 +58,7 @@ class MedallionsController < ApplicationController
     @medallion = Medallion.find(params[:id])
     authorize @medallion
     @medallion.destroy
-    redirect_to @group
+    redirect_to medallions_path 
   end
 
   private
