@@ -54,6 +54,13 @@ class MedallionsController < ApplicationController
     end
   end
 
+  def destroy
+    @medallion = Medallion.find(params[:id])
+    authorize @medallion
+    @medallion.destroy
+    redirect_to @group
+  end
+
   private
   def load_group
     @group = Group.find(params[:group_id]) if params[:group_id].present?

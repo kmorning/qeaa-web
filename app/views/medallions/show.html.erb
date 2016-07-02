@@ -15,6 +15,7 @@
   <% if current_member %>
     <% if current_member.has_role? :admin %>
       <%= link_to 'Edit', edit_medallion_path(@medallion), class: "button" %>
+      <%= link_to 'Destroy', medallion_path(@medallion), class: "button", method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
   <% end %>
 </div>
