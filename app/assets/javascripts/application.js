@@ -20,7 +20,7 @@
 //= require fullcalendar
 //= require underscore-min
 //= require markerclustererplus/src/markerclusterer_packed.js
-//= require infobox/src/infobox_packed.js
+// require infobox/src/infobox_packed.js
 //= require gmaps/google
 //= require_tree .
 //MarkerClusterer.IMAGE_PATH = '/assets/markerclustererplus/images/m'
