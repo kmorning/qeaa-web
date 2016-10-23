@@ -7,15 +7,15 @@
 # Rails.application.config.assets.paths << Emoji.images_path
 
 # google maps utility library
-Rails.application.config.assets.paths += %W(
+#Rails.application.config.assets.paths += %W(
  #{Rails.root}/vendor/assets/google-maps-utility-library-v3
-)
+#)
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 
 # google maps compile images
-Rails.application.config.assets.precompile += %w(
- markerclustererplus/images/*.png
-)
+#Rails.application.config.assets.precompile += %w(
+# markerclustererplus/images/*.png
+#)
