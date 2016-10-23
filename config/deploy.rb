@@ -34,6 +34,10 @@ set :deploy_to, '/home/deploy/qeaa-web'
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+# git submodules
+set :scm, :git
+set :git_strategy, Capistrano::Git::SubmoduleStrategy
+
 namespace :deploy do
 
   desc 'Restart application'

@@ -28,7 +28,7 @@ server '67.231.28.167',
   user: 'deploy',
   roles: %w{web app},
   ssh_options: {
-    keys: %w(/opt/media/src/rails/keys/serenity.pem)
+    keys: %w(/home/kmorning/keys/serenity.pem)
   }
 
 # you can set custom ssh options
