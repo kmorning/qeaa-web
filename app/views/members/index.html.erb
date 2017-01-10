@@ -15,7 +15,13 @@
       <% @members.each do |member| %>
         <tr>
           <td><%= link_to member.name, member_path(member) %></td>
-          <td><%= member.group.name %></td>
+          <td>
+            <% if member.group %>
+              <%= member.group.name %>
+            <% else %>
+              None
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </table>
