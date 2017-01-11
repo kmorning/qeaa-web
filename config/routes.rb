@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     :controllers => { :registrations => "registrations" }
   resources :meetings
 
-  resources :members
+  resources :members do
+    collection do
+      post 'reset_all_viewable', action: :reset_all_viewable
+    end
+  end
 
   resources :medallions, only: [:index, :show, :edit, :update, :destroy]
 

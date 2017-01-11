@@ -10,6 +10,7 @@
       <tr>
         <th>Member</th>
         <th>Group</th>
+        <th>Show Birthday</th>
       </tr>
 
       <% @members.each do |member| %>
@@ -22,11 +23,13 @@
               None
             <% end %>
           </td>
+          <td><%= member.has_role?(:viewable).to_s %></td>
         </tr>
       <% end %>
     </table>
   </div>
   <div class="large-12 columns">
+    <%= link_to 'Reset all viewable', reset_all_viewable_members_path, method: :post, class: "button" %>
     <%= link_to "Back", :back, class: "button" %>
   </div>
 </div>

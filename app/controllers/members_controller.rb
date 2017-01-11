@@ -58,6 +58,15 @@ class MembersController < ApplicationController
     authorize @member
   end
 
+  def reset_all_viewable
+    authorize Member
+    members = Member.with_role :viewable
+    members.each do |member|
+      member.remove_role :viewable
+    end
+    redirect_to action: 'index'
+  end
+
   private
   def secure_params
     params.require(:member).permit(:first_name, :last_initial, :group_id,

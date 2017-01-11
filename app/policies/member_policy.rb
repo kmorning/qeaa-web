@@ -37,5 +37,9 @@ class MemberPolicy
       @current_member.has_role?(:admin)
   end
 
+  def reset_all_viewable?
+    @current_member.has_role? :admin
+  end
+
 end
 
