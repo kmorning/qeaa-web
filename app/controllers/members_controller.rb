@@ -60,9 +60,15 @@ class MembersController < ApplicationController
 
   def reset_all_viewable
     authorize Member
+    start_date = Date.parse(Time.zone.now.to_s)
+    end_date = start_date.advance(days: +45)
+    displayed_members = Member.find_birthdays_for(start_date, end_date).with_role(:viewable).sort_by{ |m| [m.birthday.month,     m.birthday.day]  }
     members = Member.with_role :viewable
     members.each do |member|
       member.remove_role :viewable
+    end
+    displayed_members.each do |member|
+      member.add_role :viewable
     end
     redirect_to action: 'index'
   end
