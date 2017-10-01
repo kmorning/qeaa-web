@@ -67,4 +67,9 @@ class Meeting < ActiveRecord::Base
     note_str
   end
 
+  # JSON feed for meeting guide app
+  #def slug
+  #  self.id
+  #end
+
 end
