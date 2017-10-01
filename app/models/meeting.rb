@@ -29,6 +29,10 @@ class Meeting < ActiveRecord::Base
 
   enum frequency: [:weekly, :monthly, :single]
 
+  # Class variables for JSON feed
+  @@category_types = ["O", "C"]
+  @@format_types = ["D", "SP", "BE", "ST", "TR", "B", "BUS", "BUS", "BUS", "GR", nil]
+
   #TODO: Need validation to make sure a given group doesn't have
   # multiple meetings on the same day and time.  The validation
   # below breaks TimeOfDay storage to database.  Also, when start and
@@ -68,8 +72,25 @@ class Meeting < ActiveRecord::Base
   end
 
   # JSON feed for meeting guide app
-  #def slug
-  #  self.id
-  #end
+  def updated
+    updated_at.utc.strftime("%F %T") if updated_at
+  end
+
+  def types
+    t = Array.new()
+    t << category_type if category_type
+    t << format_type if format_type
+    t << "X" if self.accessible?
+    t
+  end
+
+  private
+  def category_type
+    @@category_types[self[:category]] if self.category
+  end
+
+  def format_type
+    @@format_types[self[:format]] if self.format
+  end
 
 end
