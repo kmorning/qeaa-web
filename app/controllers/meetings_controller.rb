@@ -51,8 +51,12 @@ class MeetingsController < ApplicationController
   end
 
   def index
-    @meetings = Meeting.order(:weekday, :time).page params[:page]
-    @meetings = Meeting.send(params[:scope]).order(:weekday, :time).page params[:page] if params[:scope].present?
+    if request.format == 'json'
+      @meetings = Meeting.all
+    else
+      @meetings = Meeting.order(:weekday, :time).page params[:page]
+      @meetings = Meeting.send(params[:scope]).order(:weekday, :time).page params[:page] if params[:scope].present?
+    end
   end
 
   def show
