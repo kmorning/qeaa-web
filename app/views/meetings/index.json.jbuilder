@@ -1,4 +1,4 @@
-json.meetings @meetings do |meeting|
+json.array! @meetings do |meeting|
   json.(meeting, :name)
   json.set! :slug, meeting.id
   json.set! :day, meeting[:weekday]
