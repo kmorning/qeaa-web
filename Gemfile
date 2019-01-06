@@ -41,6 +41,8 @@ gem "haml"
 gem 'jquery-ui-rails'
 # Use time splitter with one date field instead
 gem 'time_splitter'
+# Administrate dashboard to manipulate models
+gem 'administrate'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
