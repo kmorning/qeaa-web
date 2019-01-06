@@ -1,12 +1,21 @@
-class Admin::MeetingsController < Admin::ApplicationController
-  # To customize the behavior of this controller,
-  # simply overwrite any of the RESTful actions. For example:
-  #
-  # def index
-  #   super
-  #   @resources = Meeting.all.paginate(10, params[:page])
-  # end
+module Admin
+  class MeetingsController < Admin::ApplicationController
+    # To customize the behavior of this controller,
+    # you can overwrite any of the RESTful actions. For example:
+    #
+    # def index
+    #   super
+    #   @resources = Meeting.
+    #     page(params[:page]).
+    #     per(10)
+    # end
 
-  # See https://administrate-docs.herokuapp.com/customizing_controller_actions
-  # for more information
+    # Define a custom finder by overriding the `find_resource` method:
+    # def find_resource(param)
+    #   Meeting.find_by!(slug: param)
+    # end
+
+    # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
+    # for more information
+  end
 end

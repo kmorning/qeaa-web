@@ -1,62 +1,57 @@
 require "administrate/base_dashboard"
 
 class MemberEmailDashboard < Administrate::BaseDashboard
-
-  # This method returns a hash
-  # that describes the type of each of the model's fields.
+  # ATTRIBUTE_TYPES
+  # a hash that describes the type of each of the model's fields.
   #
   # Each different type represents an Administrate::Field object,
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
-  def attribute_types
-    {
-      id: :integer,
-      member_id: :integer,
-      email: :string,
-      is_primary: :boolean,
-      created_at: :datetime,
-      updated_at: :datetime,
-      member: :belongs_to,
-    }
-  end
+  ATTRIBUTE_TYPES = {
+    member: Field::BelongsTo,
+    id: Field::Number,
+    email: Field::String,
+    is_primary: Field::Boolean,
+    created_at: Field::DateTime,
+    updated_at: Field::DateTime,
+  }.freeze
 
-  # This method returns an array of attributes
-  # that will be displayed on the model's index page.
-  def table_attributes
-    attributes
-  end
+  # COLLECTION_ATTRIBUTES
+  # an array of attributes that will be displayed on the model's index page.
+  #
+  # By default, it's limited to four items to reduce clutter on index pages.
+  # Feel free to add, remove, or rearrange items.
+  COLLECTION_ATTRIBUTES = [
+    :member,
+    :id,
+    :email,
+    :is_primary,
+  ].freeze
 
-  # This method returns an array of attributes
-  # that will be displayed on the model's show page
-  def show_page_attributes
-    attributes
-  end
+  # SHOW_PAGE_ATTRIBUTES
+  # an array of attributes that will be displayed on the model's show page.
+  SHOW_PAGE_ATTRIBUTES = [
+    :member,
+    :id,
+    :email,
+    :is_primary,
+    :created_at,
+    :updated_at,
+  ].freeze
 
-  # This method returns an array of attributes
-  # that will be displayed on the model's form pages (`new` and `edit`)
-  def form_attributes
-    attributes - read_only_attributes
-  end
+  # FORM_ATTRIBUTES
+  # an array of attributes that will be displayed
+  # on the model's form (`new` and `edit`) pages.
+  FORM_ATTRIBUTES = [
+    :member,
+    :email,
+    :is_primary,
+  ].freeze
 
-  private
-
-  def attributes
-    [
-      :id,
-      :member_id,
-      :email,
-      :is_primary,
-      :created_at,
-      :updated_at,
-      :member,
-    ]
-  end
-
-  def read_only_attributes
-    [
-      :id,
-      :created_at,
-      :updated_at,
-    ]
-  end
+  # Overwrite this method to customize how member emails are displayed
+  # across all pages of the admin dashboard.
+  #
+  # def display_resource(member_email)
+  #   "MemberEmail ##{member_email.id}"
+  # end
 end

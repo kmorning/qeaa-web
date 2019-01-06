@@ -1,76 +1,78 @@
 require "administrate/base_dashboard"
 
 class AccountDashboard < Administrate::BaseDashboard
-
-  # This method returns a hash
-  # that describes the type of each of the model's fields.
+  # ATTRIBUTE_TYPES
+  # a hash that describes the type of each of the model's fields.
   #
   # Each different type represents an Administrate::Field object,
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
-  def attribute_types
-    {
-      id: :integer,
-      member_id: :integer,
-      encrypted_password: :string,
-      reset_password_token: :string,
-      reset_password_sent_at: :datetime,
-      remember_created_at: :datetime,
-      sign_in_count: :integer,
-      current_sign_in_at: :datetime,
-      last_sign_in_at: :datetime,
-      current_sign_in_ip: :inet,
-      last_sign_in_ip: :inet,
-      created_at: :datetime,
-      updated_at: :datetime,
-      member: :belongs_to,
-    }
-  end
+  ATTRIBUTE_TYPES = {
+    member: Field::BelongsTo,
+    id: Field::Number,
+    encrypted_password: Field::String,
+    reset_password_token: Field::String,
+    reset_password_sent_at: Field::DateTime,
+    remember_created_at: Field::DateTime,
+    sign_in_count: Field::Number,
+    current_sign_in_at: Field::DateTime,
+    last_sign_in_at: Field::DateTime,
+    current_sign_in_ip: Field::String.with_options(searchable: false),
+    last_sign_in_ip: Field::String.with_options(searchable: false),
+    created_at: Field::DateTime,
+    updated_at: Field::DateTime,
+  }.freeze
 
-  # This method returns an array of attributes
-  # that will be displayed on the model's index page.
-  def table_attributes
-    attributes
-  end
+  # COLLECTION_ATTRIBUTES
+  # an array of attributes that will be displayed on the model's index page.
+  #
+  # By default, it's limited to four items to reduce clutter on index pages.
+  # Feel free to add, remove, or rearrange items.
+  COLLECTION_ATTRIBUTES = [
+    :member,
+    :id,
+    :encrypted_password,
+    :reset_password_token,
+  ].freeze
 
-  # This method returns an array of attributes
-  # that will be displayed on the model's show page
-  def show_page_attributes
-    attributes
-  end
+  # SHOW_PAGE_ATTRIBUTES
+  # an array of attributes that will be displayed on the model's show page.
+  SHOW_PAGE_ATTRIBUTES = [
+    :member,
+    :id,
+    :encrypted_password,
+    :reset_password_token,
+    :reset_password_sent_at,
+    :remember_created_at,
+    :sign_in_count,
+    :current_sign_in_at,
+    :last_sign_in_at,
+    :current_sign_in_ip,
+    :last_sign_in_ip,
+    :created_at,
+    :updated_at,
+  ].freeze
 
-  # This method returns an array of attributes
-  # that will be displayed on the model's form pages (`new` and `edit`)
-  def form_attributes
-    attributes - read_only_attributes
-  end
+  # FORM_ATTRIBUTES
+  # an array of attributes that will be displayed
+  # on the model's form (`new` and `edit`) pages.
+  FORM_ATTRIBUTES = [
+    :member,
+    :encrypted_password,
+    :reset_password_token,
+    :reset_password_sent_at,
+    :remember_created_at,
+    :sign_in_count,
+    :current_sign_in_at,
+    :last_sign_in_at,
+    :current_sign_in_ip,
+    :last_sign_in_ip,
+  ].freeze
 
-  private
-
-  def attributes
-    [
-      :id,
-      :member_id,
-      :encrypted_password,
-      :reset_password_token,
-      :reset_password_sent_at,
-      :remember_created_at,
-      :sign_in_count,
-      :current_sign_in_at,
-      :last_sign_in_at,
-      :current_sign_in_ip,
-      :last_sign_in_ip,
-      :created_at,
-      :updated_at,
-      :member,
-    ]
-  end
-
-  def read_only_attributes
-    [
-      :id,
-      :created_at,
-      :updated_at,
-    ]
-  end
+  # Overwrite this method to customize how accounts are displayed
+  # across all pages of the admin dashboard.
+  #
+  # def display_resource(account)
+  #   "Account ##{account.id}"
+  # end
 end

@@ -86,7 +86,7 @@ gem 'rolify'
 # Use simple form with foundation
 gem 'simple_form'
 # TimeOfDay
-gem 'tod'
+gem 'tod', '~> 1.5.0'
 # Birthdays and anniversaries
 gem 'birthday'
 # Authentication
@@ -121,6 +121,7 @@ group :development do
   gem 'rails_layout'
   # Plugin to create seed data from existing data in database.
   gem 'seed_dump'
+  gem 'binding_of_caller'
 end
 
 ################################################################

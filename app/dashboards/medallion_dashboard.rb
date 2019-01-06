@@ -1,70 +1,66 @@
 require "administrate/base_dashboard"
 
 class MedallionDashboard < Administrate::BaseDashboard
-
-  # This method returns a hash
-  # that describes the type of each of the model's fields.
+  # ATTRIBUTE_TYPES
+  # a hash that describes the type of each of the model's fields.
   #
   # Each different type represents an Administrate::Field object,
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
-  def attribute_types
-    {
-      id: :integer,
-      meeting_id: :integer,
-      member_id: :integer,
-      created_at: :datetime,
-      updated_at: :datetime,
-      years: :integer,
-      date: :datetime,
-      event: :belongs_to,
-      group: :belongs_to,
-      meeting: :belongs_to,
-      member: :belongs_to,
-    }
-  end
+  ATTRIBUTE_TYPES = {
+    event: Field::HasOne,
+    group: Field::HasOne,
+    meeting: Field::BelongsTo,
+    member: Field::BelongsTo,
+    id: Field::Number,
+    created_at: Field::DateTime,
+    updated_at: Field::DateTime,
+    years: Field::Number,
+    date: Field::DateTime,
+  }.freeze
 
-  # This method returns an array of attributes
-  # that will be displayed on the model's index page.
-  def table_attributes
-    attributes
-  end
+  # COLLECTION_ATTRIBUTES
+  # an array of attributes that will be displayed on the model's index page.
+  #
+  # By default, it's limited to four items to reduce clutter on index pages.
+  # Feel free to add, remove, or rearrange items.
+  COLLECTION_ATTRIBUTES = [
+    :event,
+    :group,
+    :meeting,
+    :member,
+  ].freeze
 
-  # This method returns an array of attributes
-  # that will be displayed on the model's show page
-  def show_page_attributes
-    attributes
-  end
+  # SHOW_PAGE_ATTRIBUTES
+  # an array of attributes that will be displayed on the model's show page.
+  SHOW_PAGE_ATTRIBUTES = [
+    :event,
+    :group,
+    :meeting,
+    :member,
+    :id,
+    :created_at,
+    :updated_at,
+    :years,
+    :date,
+  ].freeze
 
-  # This method returns an array of attributes
-  # that will be displayed on the model's form pages (`new` and `edit`)
-  def form_attributes
-    attributes - read_only_attributes
-  end
+  # FORM_ATTRIBUTES
+  # an array of attributes that will be displayed
+  # on the model's form (`new` and `edit`) pages.
+  FORM_ATTRIBUTES = [
+    :event,
+    :group,
+    :meeting,
+    :member,
+    :years,
+    :date,
+  ].freeze
 
-  private
-
-  def attributes
-    [
-      :id,
-      :meeting_id,
-      :member_id,
-      :created_at,
-      :updated_at,
-      :years,
-      :date,
-      :event,
-      :group,
-      :meeting,
-      :member,
-    ]
-  end
-
-  def read_only_attributes
-    [
-      :id,
-      :created_at,
-      :updated_at,
-    ]
-  end
+  # Overwrite this method to customize how medallions are displayed
+  # across all pages of the admin dashboard.
+  #
+  # def display_resource(medallion)
+  #   "Medallion ##{medallion.id}"
+  # end
 end

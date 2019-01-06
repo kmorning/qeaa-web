@@ -1,64 +1,57 @@
 require "administrate/base_dashboard"
 
 class RoleDashboard < Administrate::BaseDashboard
-
-  # This method returns a hash
-  # that describes the type of each of the model's fields.
+  # ATTRIBUTE_TYPES
+  # a hash that describes the type of each of the model's fields.
   #
   # Each different type represents an Administrate::Field object,
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
-  def attribute_types
-    {
-      id: :integer,
-      name: :string,
-      resource_id: :integer,
-      resource_type: :string,
-      created_at: :datetime,
-      updated_at: :datetime,
-      members: :has_many,
-      resource: :belongs_to,
-    }
-  end
+  ATTRIBUTE_TYPES = {
+    members: Field::HasMany,
+    resource: Field::Polymorphic,
+    id: Field::Number,
+    name: Field::String,
+    created_at: Field::DateTime,
+    updated_at: Field::DateTime,
+  }.freeze
 
-  # This method returns an array of attributes
-  # that will be displayed on the model's index page.
-  def table_attributes
-    attributes
-  end
+  # COLLECTION_ATTRIBUTES
+  # an array of attributes that will be displayed on the model's index page.
+  #
+  # By default, it's limited to four items to reduce clutter on index pages.
+  # Feel free to add, remove, or rearrange items.
+  COLLECTION_ATTRIBUTES = [
+    :members,
+    :resource,
+    :id,
+    :name,
+  ].freeze
 
-  # This method returns an array of attributes
-  # that will be displayed on the model's show page
-  def show_page_attributes
-    attributes
-  end
+  # SHOW_PAGE_ATTRIBUTES
+  # an array of attributes that will be displayed on the model's show page.
+  SHOW_PAGE_ATTRIBUTES = [
+    :members,
+    :resource,
+    :id,
+    :name,
+    :created_at,
+    :updated_at,
+  ].freeze
 
-  # This method returns an array of attributes
-  # that will be displayed on the model's form pages (`new` and `edit`)
-  def form_attributes
-    attributes - read_only_attributes
-  end
+  # FORM_ATTRIBUTES
+  # an array of attributes that will be displayed
+  # on the model's form (`new` and `edit`) pages.
+  FORM_ATTRIBUTES = [
+    :members,
+    :resource,
+    :name,
+  ].freeze
 
-  private
-
-  def attributes
-    [
-      :id,
-      :name,
-      :resource_id,
-      :resource_type,
-      :created_at,
-      :updated_at,
-      :members,
-      :resource,
-    ]
-  end
-
-  def read_only_attributes
-    [
-      :id,
-      :created_at,
-      :updated_at,
-    ]
-  end
+  # Overwrite this method to customize how roles are displayed
+  # across all pages of the admin dashboard.
+  #
+  # def display_resource(role)
+  #   "Role ##{role.id}"
+  # end
 end
