@@ -29,6 +29,12 @@ $(function() {
   $(document).foundation();
 });
 
+document.addEventListener("turbolinks:load", function() {
+  jQuery(function(){
+    $(document).foundation();
+  });
+});
+
 $(document). on("page:load ready", function(){
   $("input.datepicker").each(function(input) {
     $(this).datepicker({
