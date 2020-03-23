@@ -81,6 +81,7 @@ class Meeting < ActiveRecord::Base
     t << category_type if category_type
     t << format_type if format_type
     t << "X" if self.accessible?
+    t << "TC" if self.temp_closure?
     t
   end
 

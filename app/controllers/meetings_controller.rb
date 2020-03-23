@@ -75,6 +75,6 @@ class MeetingsController < ApplicationController
     params.require(:meeting).permit(:group_id, :name, :facility, :street, :city,
                                     :province, :postal_code, :weekday,
                                     :time_str, :category, :format, :accessible,
-                                    :notice, :frequency)
+                                    :notice, :frequency, :temp_closure)
   end
 end
