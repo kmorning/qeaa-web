@@ -7,7 +7,7 @@
         <div class="small-12 content-columns meeting-detail">
           <h3><%= @meeting.name %></h3>
           <% if @meeting.temp_closure? %>
-            <h4>MEETING IS TEMPORARILY CANCELED</h4>
+            <h4>MEETING IS TEMPORARILY CANCELLED</h4>
           <% end %>
           <div>
             <%= @meeting.weekday.titleize %>, 
