@@ -30,6 +30,7 @@
         <th>Street</th>
         <th>City/Town</th>
         <th>Type</th>
+        <th>Web</th>
         <!--th>Format</th-->
         <th>Notes</th>
       </tr>
@@ -45,6 +46,11 @@
           <td><%= meeting.street %></td>
           <td><%= meeting.city %></td>
           <td><%= meeting.category.titleize %></td>
+          <td><% if meeting.video_conference_url.present? %>
+            <%= link_to "Join", meeting.video_conference_url, target: '_blank' %>
+          <% else %>
+              No
+          <% end %>
           <!--td--><%# meeting.format.titleize unless meeting.format.nil? %><!--/td-->
           <td><%= meeting.notes if meeting.notes %>
         </tr>
@@ -72,6 +78,7 @@
   </div>
   <div class="full-centered">
     (WA) = Wheelchair Accessible</br></br>
+    Online meetings have "Join" link under Web column.  Meetings start at time indicated.
     <%= paginate @meetings %>
   </div>
 </div>
