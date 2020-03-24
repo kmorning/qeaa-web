@@ -22,6 +22,7 @@
          <%= f.input :time_str, label: 'Time' %>
          <%= f.input :category, collection: Meeting.categories.collect {|k,v| [k.titleize,k]} %>
          <%= f.input :format, collection: Meeting.formats.collect {|k,v| [k.titleize,k]} %>
+         <%= f.input :video_conference_url %>
          <%= f.input :frequency, collection: Meeting.frequencies.collect {|k,v| [k.titleize,k]} %>
          <%= f.input :accessible, label: 'Wheelchair access' %>
          <%= f.input :notice %>

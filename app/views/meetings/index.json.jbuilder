@@ -10,4 +10,7 @@ json.array! @meetings do |meeting|
   json.(meeting, :city, :postal_code)
   json.set! :country, "CA"
   json.(meeting, :longitude, :latitude)
+  if meeting.video_conference_url.present?
+    json.(meeting, :video_conference_url)
+  end
 end

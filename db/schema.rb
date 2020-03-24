@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200323203659) do
+ActiveRecord::Schema.define(version: 20200324204132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,14 +118,15 @@ ActiveRecord::Schema.define(version: 20200323203659) do
     t.text     "notice"
     t.date     "start_date"
     t.date     "end_date"
-    t.integer  "frequency",    default: 0
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.integer  "frequency",            default: 0
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.integer  "province"
     t.float    "latitude"
     t.float    "longitude"
     t.string   "postal_code"
-    t.boolean  "temp_closure", default: false
+    t.boolean  "temp_closure",         default: false
+    t.string   "video_conference_url"
   end
 
   add_index "meetings", ["group_id"], name: "index_meetings_on_group_id", using: :btree
