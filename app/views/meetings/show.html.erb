@@ -9,6 +9,13 @@
           <% if @meeting.temp_closure? %>
             <h4>MEETING IS TEMPORARILY CANCELLED</h4>
           <% end %>
+          <% if @meeting.video_conference_url.present? %>
+            <h4>Online Meeting Available:</h4>
+            <div>
+              <strong>To join online meeting </strong><%= link_to "Click Here", @meeting.video_conference_url, target: '_blank' %>.  Meeting starts at time listed below.
+            </div>
+            <br>
+          <% end %>
           <div>
             <%= @meeting.weekday.titleize %>, 
             <%= @meeting.time.strftime("%l:%M %p") %>
