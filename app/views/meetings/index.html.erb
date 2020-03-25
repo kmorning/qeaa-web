@@ -15,6 +15,15 @@
   <div class="full-centered">
      <%= link_to "| Quinte West, District 30 Meeting List |", 'https://docs.wixstatic.com/ugd/591b6d_9e5794e47d7e4c0c8e248db118ae44ae.pdf', target: '_blank' %>
   </div>
+<!--div class="small-12 content-columns">
+    <div class="text-panel">
+      <div><h4 class="text-center"><strong>Online Meetings now Available</strong></h4></div>
+      <p>With the temporary closure of many meetings, some groups are offering online video conference meetings.  Online meetings have a web link instead of an address.  Click on it to enter the meeting at the indicated time.  It's best to "arrive" a few minutes early!</p>
+    </div>
+  </div-->
+  <div class="full-centered">
+    <strong>NEW: </strong>With the temporary closure of many meetings, some groups are offering online video conference meetings.  Online meetings have a web link instead of an address.  Click on it to enter the meeting at the indicated time.  It's best to "arrive" a few minutes early!
+  </div>
 <!--/div-->
 <!--div class="row"-->
   <div class="large-12 columns"><br></div>
@@ -26,11 +35,9 @@
         <th>Name</th>
         <th>Day</th>
         <th>Time</th>
-        <th>Facility</th>
-        <th>Street</th>
+        <th>Address</th>
         <th>City/Town</th>
-        <th>Type</th>
-        <th>Web</th>
+        <th>Format</th>
         <!--th>Format</th-->
         <th>Notes</th>
       </tr>
@@ -42,15 +49,13 @@
           </td>
           <td><%= meeting.weekday.titleize %></td>
           <td><%= meeting.time.strftime("%l:%M %p") %></td>
-          <td><%= meeting.facility %></td>
-          <td><%= meeting.street %></td>
-          <td><%= meeting.city %></td>
-          <td><%= meeting.category.titleize %></td>
-          <td><% if meeting.video_conference_url.present? %>
-            <%= link_to "Join", meeting.video_conference_url, target: '_blank' %>
+          <% if meeting.video_conference_url.present? %>
+            <td><%= link_to "Online Meeting - Click to Join", meeting.video_conference_url, target: '_blank' %></td>
           <% else %>
-              No
+            <td><%= meeting.address %></td>
           <% end %>
+          <td><%= meeting.city %></td>
+          <td><%= meeting.description %></td>
           <!--td--><%# meeting.format.titleize unless meeting.format.nil? %><!--/td-->
           <td><%= meeting.notes if meeting.notes %>
         </tr>
@@ -63,13 +68,22 @@
     <div class="item-panel-wrapper">
       <% @meetings.each do |meeting| %>
         <div class="item-panel">
+          <% if meeting.temp_closure? %>
+            TEMPORARILY CANCELLED<br>
+          <% end %>
           <%= link_to meeting.name, meeting_path(meeting) %>, 
           <%= meeting.weekday.titleize %>, 
           <%= meeting.time.strftime("%l:%M %p") %><br/>
-          <%= meeting.facility %><br/>
-          <%= meeting.street %>, 
-          <%= meeting.city %><br/>
+          <% if meeting.video_conference_url.present? %>
+            <%= link_to "Online Meeting - Click to Join", meeting.video_conference_url, target: '_blank' %>
+          <% else %>
+            <%= meeting.facility %><br/>
+            <%= meeting.street %>, 
+            <%= meeting.city %>
+          <% end %>
+          <br/>
           <%= meeting.category.titleize %>
+          <br>
           <%#= meeting.format.titleize unless meeting.format.nil? %>
           <%= meeting.notes if meeting.notes %>
         </div>
@@ -78,7 +92,6 @@
   </div>
   <div class="full-centered">
     (WA) = Wheelchair Accessible</br></br>
-    Online meetings have "Join" link under Web column.  Meetings start at time indicated.
     <%= paginate @meetings %>
   </div>
 </div>

@@ -59,6 +59,10 @@ class Meeting < ActiveRecord::Base
     self.time = Tod::TimeOfDay.try_parse(val)
   end
 
+  def address
+    self.facility + ", " + self.street
+  end
+
   def notes
     if  self.accessible?
       note_str = "(WA)"
@@ -69,6 +73,18 @@ class Meeting < ActiveRecord::Base
       note_str = self.notice
     end
     note_str
+  end
+
+  def types_str
+    self.types.join(',')
+  end
+
+  def description
+    if self.format.present?
+      self.category.titleize + " " + self.format.titleize
+    else
+      self.category.titleize
+    end
   end
 
   # JSON feed for meeting guide app
