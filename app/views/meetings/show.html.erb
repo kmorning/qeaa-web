@@ -10,9 +10,14 @@
             <h4>MEETING IS TEMPORARILY CANCELLED</h4>
           <% end %>
           <% if @meeting.video_conference_url.present? %>
+            <br>
             <h4>Online Meeting Available:</h4>
             <div>
-              <strong>To join online meeting </strong><%= link_to "Click Here", @meeting.video_conference_url, target: '_blank' %>.  Meeting starts at time listed below.
+              <strong>To join online meeting, click the button below.  Meeting starts at the indicated time, and it's recommended that you "arrive" early.</strong>
+            </div>
+            <br>
+            <div>
+              <%= link_to "Enter Meeting", @meeting.video_conference_url, target: '_blank', class: "button" %>
             </div>
             <br>
           <% end %>
