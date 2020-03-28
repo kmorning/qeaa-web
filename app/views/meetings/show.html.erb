@@ -48,11 +48,13 @@
         </div>
       </div>
       <br> 
-      <div class="row">
-        <div class="small-12 columns">
-          <div id="map"></div>
+      <% unless @meeting.video_conference_url.present? %>
+        <div class="row">
+          <div class="small-12 columns">
+            <div id="map"></div>
+          </div>
         </div>
-      </div>
+      <% end %>`
     </div>
   </div>
 </div>
