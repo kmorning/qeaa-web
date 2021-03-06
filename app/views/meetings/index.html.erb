@@ -22,7 +22,7 @@
     </div>
   </div-->
   <div class="full-centered">
-    <strong>NEW: </strong>With the temporary closure of many meetings, some groups are offering online video conference meetings.  Online meetings have a web link instead of an address.  Click on it to enter the meeting at the indicated time.  It's best to "arrive" a few minutes early!
+    With the temporary closure of many meetings, some groups are offering online video conference meetings.  Online meetings have a web link instead of an address.  Click on it to enter the meeting at the indicated time.  It's best to "arrive" a few minutes early!
   </div>
 <!--/div-->
 <!--div class="row"-->
@@ -69,26 +69,28 @@
     <%#-------------- Small Displays -----------------%>
     <div class="item-panel-wrapper">
       <% @meetings.each do |meeting| %>
-        <div class="item-panel">
-          <% if meeting.temp_closure? %>
-            TEMPORARILY CANCELLED<br>
-          <% end %>
-          <%= link_to meeting.name, meeting_path(meeting) %>, 
-          <%= meeting.weekday.titleize %>, 
-          <%= meeting.time.strftime("%l:%M %p") %><br/>
-          <% if meeting.video_conference_url.present? %>
-            <%= link_to "Online Meeting - Click to Join", meeting.video_conference_url, target: '_blank' %>
-          <% else %>
-            <%= meeting.facility %><br/>
-            <%= meeting.street %>, 
-            <%= meeting.city %>
-          <% end %>
-          <br/>
-          <%= meeting.category.titleize %>
-          <br>
-          <%#= meeting.format.titleize unless meeting.format.nil? %>
-          <%= meeting.notes if meeting.notes %>
-        </div>
+        <% unless meeting.temp_closure? && !meeting.video_conference_url.present? %>
+          <div class="item-panel">
+            <% if meeting.temp_closure? %>
+              TEMPORARILY CANCELLED<br>
+            <% end %>
+            <%= link_to meeting.name, meeting_path(meeting) %>, 
+            <%= meeting.weekday.titleize %>, 
+            <%= meeting.time.strftime("%l:%M %p") %><br/>
+            <% if meeting.video_conference_url.present? %>
+              <%= link_to "Online Meeting - Click to Join", meeting.video_conference_url, target: '_blank' %>
+            <% else %>
+              <%= meeting.facility %><br/>
+              <%= meeting.street %>, 
+              <%= meeting.city %>
+            <% end %>
+            <br/>
+            <%= meeting.category.titleize %>
+            <br>
+            <%#= meeting.format.titleize unless meeting.format.nil? %>
+            <%= meeting.notes if meeting.notes %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
