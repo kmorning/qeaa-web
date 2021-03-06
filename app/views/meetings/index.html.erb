@@ -43,22 +43,24 @@
       </tr>
 
       <% @meetings.each do |meeting| %>
-        <tr>
-          <td>
-            <%= link_to meeting.name, meeting_path(meeting) %>
-          </td>
-          <td><%= meeting.weekday.titleize %></td>
-          <td><%= meeting.time.strftime("%l:%M %p") %></td>
-          <% if meeting.video_conference_url.present? %>
-            <td><%= link_to "Online Meeting - Click to Join", meeting.video_conference_url, target: '_blank' %></td>
-          <% else %>
-            <td><%= meeting.address %></td>
-          <% end %>
-          <td><%= meeting.city %></td>
-          <td><%= meeting.description %></td>
-          <!--td--><%# meeting.format.titleize unless meeting.format.nil? %><!--/td-->
-          <td><%= meeting.notes if meeting.notes %>
-        </tr>
+        <% unless meeting.temp_closure? && !meeting.video_conference_url.present? %>
+          <tr>
+            <td>
+              <%= link_to meeting.name, meeting_path(meeting) %>
+            </td>
+            <td><%= meeting.weekday.titleize %></td>
+            <td><%= meeting.time.strftime("%l:%M %p") %></td>
+            <% if meeting.video_conference_url.present? %>
+              <td><%= link_to "Online Meeting - Click to Join", meeting.video_conference_url, target: '_blank' %></td>
+            <% else %>
+              <td><%= meeting.address %></td>
+            <% end %>
+            <td><%= meeting.city %></td>
+            <td><%= meeting.description %></td>
+            <!--td--><%# meeting.format.titleize unless meeting.format.nil? %><!--/td-->
+            <td><%= meeting.notes if meeting.notes %>
+          </tr>
+        <% end %>
       <% end %>
     </table>
     </div>
