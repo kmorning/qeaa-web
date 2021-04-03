@@ -3,7 +3,7 @@
 <% end %>
 
 <br>
-<div class="row">
+<!--div class="row">
   <div class="small-12 content-columns">
     <div class="text-panel">
       <div>
@@ -11,11 +11,11 @@
       </div>
       <p>For information, questions, comments regarding this website, or to report any errors or omisisons, please contact the discrict webmaster using the link below.  If you are the GSR for your group, you can use this email to update the Webmaster with Medallion information, Group Anniversaries and Group Events.</p>
       <div class="text-center">
-        <%= link_to 'Contact Webmaster', contacts_path(recipient: :webmaster) %>
+        <%# link_to 'Contact Webmaster', contacts_path(recipient: :webmaster) %>
       </div>
     </div>
   </div>
-</div>
+</div-->
 <div class="row">
   <div class="small-12 large-6 content-columns">
     <div class="text-panel">
@@ -34,6 +34,7 @@
               <li><%= link_to 'Grapevine Chair', contacts_path(recipient: :grapevine) %></li>
               <li><%= link_to 'Self Support Chair', contacts_path(recipient: :selfsupport) %></li>
               <li><%= link_to 'Archives Chair', contacts_path(recipient: :archives) %></li>
+              <li><%= link_to 'Webmaster', contacts_path(recipient: :webmaster) %></li>
             </ul>
           </div>
         </div>
@@ -61,6 +62,18 @@
       </div>
     </div>
   </div>
-
 </div>
 
+<div class="row">
+  <div class="small-12 content-columns">
+    <div class="text-panel">
+      <div>
+        <h4 class="text-center"><strong>Web Site Information</strong></h4>
+      </div>
+      <p>For website inquiries, or to report any errors or omisisons, please contact the discrict webmaster using the link below.  If you are the GSR for your group, you can use this email to update the Webmaster with Medallion information, Group Anniversaries and Group Events.</p>
+      <div class="text-center">
+        <%= link_to 'Contact Webmaster', contacts_path(recipient: :webmaster) %>
+      </div>
+    </div>
+  </div>
+</div>
