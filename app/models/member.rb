@@ -24,8 +24,9 @@ class Member < ActiveRecord::Base
   def birthday_age_on_next
     #if self.birthday_today?
     today = Date.parse(Time.zone.now.to_s)
+    # FIXME: need to check if birthday was last year and adjust the year accordingly
     bday = Date.parse("#{self.birthday.strftime('%b %e')} #{today.strftime('%Y')}")
-    if bday == today
+    if bday <= today
       self.birthday_age
     else
       self.birthday_age + 1
