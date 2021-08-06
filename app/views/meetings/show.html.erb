@@ -53,7 +53,7 @@
         </div>
       </div>
       <br> 
-      <% unless @meeting.video_conference_url.present? %>
+      <% unless @meeting.facility.starts_with?("Online") %>
         <div class="row">
           <div class="small-12 columns">
             <div id="map"></div>
