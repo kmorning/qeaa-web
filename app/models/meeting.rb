@@ -1,5 +1,5 @@
 class Meeting < ActiveRecord::Base
-  include Addressable
+#  include Addressable
 
   belongs_to :group, inverse_of: :meetings
 
