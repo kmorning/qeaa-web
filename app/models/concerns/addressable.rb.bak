@@ -2,9 +2,9 @@ module Addressable
   extend ActiveSupport::Concern
 
   included do
-#    geocoded_by :address
-#    after_validation :geocode,
-#      if: ->(obj){ obj.address_present? and obj.address_changed? }
+    geocoded_by :address
+    after_validation :geocode,
+      if: ->(obj){ obj.address_present? and obj.address_changed? }
 
     enum province: [:ab,
                     :bc,
