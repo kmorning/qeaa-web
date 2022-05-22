@@ -81,9 +81,11 @@ class Meeting < ActiveRecord::Base
 
   def description
     if self.format.present?
-      self.category.titleize + " " + self.format.titleize
+      #self.category.titleize + " " + self.format.titleize
+      category_type + " " + self.format.titleize
     else
-      self.category.titleize
+      #self.category.titleize
+      category_type
     end
   end
 
