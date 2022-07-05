@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/capistrano/rvm.git
+  remote: https://github.com/capistrano/rvm.git
   revision: 9cfef39cf0022839dca6b5b330dfefeb5fc363e7
   specs:
     capistrano-rvm (0.1.2)
@@ -7,8 +7,8 @@ GIT
       sshkit (~> 1.2)
 
 GIT
-  remote: git://github.com/ekho/capistrano-git-submodule-strategy.git
-  revision: 559f6b08992027b2380a54b1b4b4cf55a3f10680
+  remote: https://github.com/ekho/capistrano-git-submodule-strategy.git
+  revision: d542108901958965e4ef086b03d962b8beb84d87
   specs:
     capistrano-git-submodule-strategy (0.1.23)
       capistrano (>= 3.1.0, < 3.7)
@@ -93,7 +93,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.4)
-    crass (1.0.4)
+    crass (1.0.6)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
     debug_inspector (0.0.3)
@@ -151,7 +151,7 @@ GEM
       activerecord
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
-    loofah (2.2.3)
+    loofah (2.18.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -168,7 +168,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (5.1.0)
-    nokogiri (1.10.0)
+    nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     pg (0.21.0)
@@ -198,8 +198,8 @@ GEM
       activesupport (>= 4.2.0, < 5.0)
       nokogiri (~> 1.6)
       rails-deprecated_sanitizer (>= 1.0.1)
-    rails-html-sanitizer (1.0.4)
-      loofah (~> 2.2, >= 2.2.2)
+    rails-html-sanitizer (1.4.3)
+      loofah (~> 2.3)
     rails_layout (1.0.42)
     railties (4.2.11)
       actionpack (= 4.2.11)
