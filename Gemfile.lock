@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/capistrano/rvm.git
+  remote: https://github.com/capistrano/rvm.git
   revision: 9cfef39cf0022839dca6b5b330dfefeb5fc363e7
   specs:
     capistrano-rvm (0.1.2)
@@ -7,8 +7,8 @@ GIT
       sshkit (~> 1.2)
 
 GIT
-  remote: git://github.com/ekho/capistrano-git-submodule-strategy.git
-  revision: 559f6b08992027b2380a54b1b4b4cf55a3f10680
+  remote: https://github.com/ekho/capistrano-git-submodule-strategy.git
+  revision: d542108901958965e4ef086b03d962b8beb84d87
   specs:
     capistrano-git-submodule-strategy (0.1.23)
       capistrano (>= 3.1.0, < 3.7)
@@ -257,7 +257,7 @@ GEM
     turbolinks (5.2.0)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    tzinfo (1.2.5)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
