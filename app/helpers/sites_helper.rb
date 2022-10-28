@@ -6,7 +6,7 @@ module SitesHelper
       "District 30 Quinte West" => "http://www.quintewestaa.org",
       "District 36 Kingston & The Islands"  => "http://www.kingstonaa.org",
       "Greater Toronto Area InterGroup" => "http://aatoronto.org/",
-      "Oshawa Lake Shore InterGroup" => "http://www.aaoshawa.org/",
+      "Oshawa Lakeshore InterGroup" => "https://www.aadurham.org/",
       "Ottawa Area Intergroup" => "http://www.ottawaaa.org/",
       "District 86 Kawartha" => "http://www.peterboroughaa.org/",
       "District 66 The Golden Triangle" => "http://www.lanarkleedsaa.org/",
