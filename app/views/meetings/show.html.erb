@@ -7,7 +7,7 @@
         <div class="small-12 content-columns meeting-detail">
           <h3><%= @meeting.name %></h3>
           <% if @meeting.temp_closure? and not @meeting.video_conference_url.present? %>
-            <h4>MEETING IS TEMPORARILY CANCELLED</h4>
+            <h4>MEETING HAS BEEN CANCELLED</h4>
           <% end %>
           <% if @meeting.video_conference_url.present? %>
             <br>

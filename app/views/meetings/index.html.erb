@@ -72,7 +72,7 @@
         <% unless meeting.temp_closure? && !meeting.video_conference_url.present? %>
           <div class="item-panel">
             <% if meeting.temp_closure? %>
-              TEMPORARILY CANCELLED<br>
+              MEETING CANCELLED<br>
             <% end %>
             <%= link_to meeting.name, meeting_path(meeting) %>, 
             <%= meeting.weekday.titleize %>, 
